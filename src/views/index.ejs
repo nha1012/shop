@@ -81,153 +81,31 @@
               class="uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m"
               uk-grid
             >
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/laptops.png"
-                          alt="Laptops"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Laptops</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $149
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/smartphones.png"
-                          alt="Smartphones"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Smartphones</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $99
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/tablets.png"
-                          alt="Tablets"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Tablets</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $129
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/watches.png"
-                          alt="Smart Watches"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Smart Watches</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $49
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/consoles.png"
-                          alt="Gaming Consoles"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Gaming Consoles</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $399
-                    </div>
-                  </div></a
-                >
-              </div>
-              <div>
-                <a
-                  class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
-                  href="subcategory.html"
-                  ><div class="tm-ratio tm-ratio-4-3">
-                    <div class="tm-media-box">
-                      <figure class="tm-media-box-wrap">
-                        <img
-                          class="item-brand"
-                          src="images/catalog/cameras.png"
-                          alt="Cameras"
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="uk-margin-small-top">
-                    <div class="uk-text-truncate">Cameras</div>
-                    <div class="uk-text-meta uk-text-xsmall uk-text-truncate">
-                      from $129
-                    </div>
-                  </div></a
-                >
-              </div>
-            </div>
-            <div class="uk-margin uk-text-center">
-              <a
-                class="uk-link-muted uk-text-uppercase tm-link-to-all"
-                href="catalog.html"
-                ><span>see all categories</span
-                ><span uk-icon="icon: chevron-right; ratio: .75;"></span
-              ></a>
-            </div>
+
+
+								<% if(danhMucSanPhams && danhMucSanPhams.length ){ %> <%
+									danhMucSanPhams.forEach(function(danhMucSanPham){ %>
+										<div>
+											<a
+												class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large"
+												href="subcategory"
+												><div class="tm-ratio tm-ratio-4-3">
+													<div class="tm-media-box">
+														<figure class="tm-media-box-wrap">
+															<img
+																class="item-brand"
+																src="images/catalog/laptops.png"
+																alt="Laptops"
+															/>
+														</figure>
+													</div>
+												</div>
+												<div class="uk-margin-small-top">
+													<div class="uk-text-truncate"><%- danhMucSanPham.tenDanhMuc%></div>
+												</div></a
+											>
+										</div>
+								<%})}%>
           </div>
         </section>
         <section class="uk-section uk-section-small">
@@ -343,7 +221,7 @@
             <div class="uk-margin uk-text-center">
               <a
                 class="uk-link-muted uk-text-uppercase tm-link-to-all"
-                href="subcategory.html"
+                href="subcategory"
                 ><span>shop all</span
                 ><span uk-icon="icon: chevron-right; ratio: .75;"></span
               ></a>
@@ -556,250 +434,6 @@
             </div>
           </div>
         </section>
-        <section class="uk-section uk-section-small">
-          <div class="uk-container">
-            <h2 class="uk-text-center">Blog</h2>
-            <div
-              class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s"
-              uk-grid
-            >
-              <div>
-                <a href="article.html"
-                  ><article
-                    class="uk-card uk-card-default uk-card-small uk-article uk-overflow-hidden uk-box-shadow-hover-large uk-height-1-1 tm-ignore-container"
-                  >
-                    <div class="tm-ratio tm-ratio-16-9">
-                      <figure
-                        class="tm-media-box uk-cover-container uk-margin-remove"
-                      >
-                        <img
-                          src="images/articles/macbook-photo.jpg"
-                          alt="Everything You Need to Know About the MacBook Pro"
-                          uk-cover
-                        />
-                      </figure>
-                    </div>
-                    <div class="uk-card-body">
-                      <div class="uk-article-body">
-                        <div class="uk-article-meta uk-margin-xsmall-bottom">
-                          <time>May 21, 2018</time>
-                        </div>
-                        <div>
-                          <h3 class="uk-margin-remove">
-                            Everything You Need to Know About the MacBook Pro
-                          </h3>
-                        </div>
-                        <div class="uk-margin-small-top">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin sodales eget ipsum id aliquam. Nam
-                            consectetur interdum nibh eget sodales. Cras
-                            volutpat efficitur ornare.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article></a
-                >
-              </div>
-              <div>
-                <a href="article.html"
-                  ><article
-                    class="uk-card uk-card-default uk-card-small uk-article uk-overflow-hidden uk-box-shadow-hover-large uk-height-1-1 tm-ignore-container"
-                  >
-                    <div class="tm-ratio tm-ratio-16-9">
-                      <figure
-                        class="tm-media-box uk-cover-container uk-margin-remove"
-                      >
-                        <img
-                          src="images/articles/macos.jpg"
-                          alt="Apple introduces macOS Mojave"
-                          uk-cover
-                        />
-                      </figure>
-                    </div>
-                    <div class="uk-card-body">
-                      <div class="uk-article-body">
-                        <div class="uk-article-meta uk-margin-xsmall-bottom">
-                          <time>May 21, 2018</time>
-                        </div>
-                        <div>
-                          <h3 class="uk-margin-remove">
-                            Apple introduces macOS Mojave
-                          </h3>
-                        </div>
-                        <div class="uk-margin-small-top">
-                          <p>
-                            Praesent consequat justo eu massa malesuada posuere.
-                            Donec ultricies tincidunt nisl, sed euismod nulla
-                            venenatis maximus. Maecenas sit amet semper tellus.
-                            Pellentesque imperdiet finibus sapien, a consectetur
-                            eros auctor a.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article></a
-                >
-              </div>
-            </div>
-            <div class="uk-margin uk-text-center">
-              <a
-                class="uk-link-muted uk-text-uppercase tm-link-to-all"
-                href="blog.html"
-                ><span>see all articles</span
-                ><span uk-icon="icon: chevron-right; ratio: .75;"></span
-              ></a>
-            </div>
-          </div>
-        </section>
-        <section class="uk-section uk-section-default uk-section-small">
-          <div class="uk-container">
-            <div
-              class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s"
-              uk-grid
-            >
-              <section>
-                <h2 class="uk-text-center uk-text-left@s">About</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  at neque vulputate, vestibulum magna in, accumsan urna. Nulla
-                  feugiat ipsum ex, molestie porttitor nibh faucibus at. Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                  hendrerit lorem ut finibus semper. Donec ac vehicula erat, nec
-                  consequat massa.
-                </p>
-                <p>
-                  Quisque rhoncus fermentum sapien id congue. Nam at rutrum
-                  turpis. Aliquam sagittis imperdiet tortor vel dignissim. Ut
-                  ipsum nunc, egestas et odio id, vestibulum posuere orci. Orci
-                  varius natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus.
-                </p>
-                <div class="uk-text-center uk-text-left@s">
-                  <a
-                    class="uk-link-muted uk-text-uppercase tm-link-to-all"
-                    href="about.html"
-                    ><span>read more</span
-                    ><span uk-icon="icon: chevron-right; ratio: .75;"></span
-                  ></a>
-                </div>
-              </section>
-              <section>
-                <h2 class="uk-text-center uk-text-left@s">Latest News</h2>
-                <ul class="uk-list uk-list-small uk-list-divider">
-                  <li>
-                    <article class="uk-article">
-                      <div class="uk-article-body">
-                        <div class="uk-article-meta uk-margin-xsmall-bottom">
-                          <time>June 4, 2018</time>
-                        </div>
-                        <h3 class="uk-h4 uk-margin-remove">
-                          <a class="uk-link-heading" href="article.html"
-                            >Highlights from WWDC</a
-                          >
-                        </h3>
-                        <div class="uk-margin-xsmall-top uk-text-small">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin sodales eget ipsum id aliquam. Nam
-                            consectetur interdum nibh eget sodales. Cras
-                            volutpat efficitur ornare.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                  <li>
-                    <article class="uk-article">
-                      <div class="uk-article-body">
-                        <div class="uk-article-meta uk-margin-xsmall-bottom">
-                          <time>June 4, 2018</time>
-                        </div>
-                        <h3 class="uk-h4 uk-margin-remove">
-                          <a class="uk-link-heading" href="article.html"
-                            >Apple introduces macOS Mojave</a
-                          >
-                        </h3>
-                        <div class="uk-margin-xsmall-top uk-text-small">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin sodales eget ipsum id aliquam. Nam
-                            consectetur interdum nibh eget sodales. Cras
-                            volutpat efficitur ornare.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                  <li>
-                    <article class="uk-article">
-                      <div class="uk-article-body">
-                        <div class="uk-article-meta uk-margin-xsmall-bottom">
-                          <time>May 29, 2018</time>
-                        </div>
-                        <h3 class="uk-h4 uk-margin-remove">
-                          <a class="uk-link-heading" href="article.html"
-                            >iOS 11.4 brings stereo pairs and multi-room audio
-                            with AirPlay 2</a
-                          >
-                        </h3>
-                        <div class="uk-margin-xsmall-top uk-text-small">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin sodales eget ipsum id aliquam. Nam
-                            consectetur interdum nibh eget sodales. Cras
-                            volutpat efficitur ornare.
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                </ul>
-                <div class="uk-margin uk-text-center uk-text-left@s">
-                  <a
-                    class="uk-link-muted uk-text-uppercase tm-link-to-all"
-                    href="news.html"
-                    ><span>see all news</span
-                    ><span uk-icon="icon: chevron-right; ratio: .75;"></span
-                  ></a>
-                </div>
-              </section>
-            </div>
-          </div>
-        </section>
-        <section
-          class="uk-section uk-section-primary uk-section-small uk-light"
-        >
-          <div class="uk-container">
-            <div class="uk-text-center">
-              <div class="uk-h2 uk-margin-remove">Subscribe for updates</div>
-              <div>Be aware of new products and special offers.</div>
-            </div>
-            <div class="uk-margin">
-              <form>
-                <div class="uk-grid-small uk-flex-center" uk-grid>
-                  <div class="uk-width-1-1 uk-width-medium@s">
-                    <div class="uk-inline uk-width-1-1">
-                      <span class="uk-form-icon" uk-icon="mail"></span
-                      ><input
-                        class="uk-input"
-                        type="email"
-                        placeholder="Your email"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <button class="uk-button uk-button-primary">
-                      subscribe
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
         <section class="uk-section uk-section-default uk-section-small">
           <div class="uk-container">
             <div uk-slider>
@@ -944,8 +578,8 @@
                   </div>
                   <div>
                     <ul class="uk-nav uk-nav-default">
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
+                      <li><a href="about">About</a></li>
+                      <li><a href="contact">Contacts</a></li>
                       <li><a href="blog.html">Blog</a></li>
                       <li><a href="news.html">News</a></li>
                     </ul>
@@ -1042,14 +676,14 @@
                   <a href="catalog.html">Catalog</a>
                   <ul class="uk-nav-sub uk-list-divider">
                     <li>
-                      <a href="subcategory.html">Laptops &amp; Tablets</a>
+                      <a href="subcategory">Laptops &amp; Tablets</a>
                     </li>
-                    <li><a href="subcategory.html">Phones &amp; Gadgets</a></li>
-                    <li><a href="subcategory.html">TV &amp; Video</a></li>
+                    <li><a href="subcategory">Phones &amp; Gadgets</a></li>
+                    <li><a href="subcategory">TV &amp; Video</a></li>
                     <li>
-                      <a href="subcategory.html">Games &amp; Entertainment</a>
+                      <a href="subcategory">Games &amp; Entertainment</a>
                     </li>
-                    <li><a href="subcategory.html">Photo</a></li>
+                    <li><a href="subcategory">Photo</a></li>
                     <li class="uk-text-center">
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
@@ -1063,18 +697,18 @@
                 <li class="uk-parent">
                   <a href="brands.html">Brands</a>
                   <ul class="uk-nav-sub uk-list-divider">
-                    <li><a href="subcategory.html">Apple</a></li>
-                    <li><a href="subcategory.html">Samsung</a></li>
-                    <li><a href="subcategory.html">Sony</a></li>
-                    <li><a href="subcategory.html">Microsoft</a></li>
-                    <li><a href="subcategory.html">Intel</a></li>
-                    <li><a href="subcategory.html">HP</a></li>
-                    <li><a href="subcategory.html">LG</a></li>
-                    <li><a href="subcategory.html">Lenovo</a></li>
-                    <li><a href="subcategory.html">ASUS</a></li>
-                    <li><a href="subcategory.html">Acer</a></li>
-                    <li><a href="subcategory.html">Dell</a></li>
-                    <li><a href="subcategory.html">Canon</a></li>
+                    <li><a href="subcategory">Apple</a></li>
+                    <li><a href="subcategory">Samsung</a></li>
+                    <li><a href="subcategory">Sony</a></li>
+                    <li><a href="subcategory">Microsoft</a></li>
+                    <li><a href="subcategory">Intel</a></li>
+                    <li><a href="subcategory">HP</a></li>
+                    <li><a href="subcategory">LG</a></li>
+                    <li><a href="subcategory">Lenovo</a></li>
+                    <li><a href="subcategory">ASUS</a></li>
+                    <li><a href="subcategory">Acer</a></li>
+                    <li><a href="subcategory">Dell</a></li>
+                    <li><a href="subcategory">Canon</a></li>
                     <li class="uk-text-center">
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
@@ -1088,32 +722,32 @@
                 <li class="uk-parent">
                   <a href="#">Pages</a>
                   <ul class="uk-nav-sub uk-list-divider">
-                    <li><a href="subcategory.html">Catalog</a></li>
-                    <li><a href="subcategory.html">Category</a></li>
-                    <li><a href="subcategory.html">Subcategory</a></li>
-                    <li><a href="subcategory.html">Product</a></li>
-                    <li><a href="subcategory.html">Cart</a></li>
-                    <li><a href="subcategory.html">Checkout</a></li>
-                    <li><a href="subcategory.html">Compare</a></li>
-                    <li><a href="subcategory.html">Brands</a></li>
-                    <li><a href="subcategory.html">Compare</a></li>
-                    <li><a href="subcategory.html">Account</a></li>
-                    <li><a href="subcategory.html">Favorites</a></li>
-                    <li><a href="subcategory.html">Personal</a></li>
-                    <li><a href="subcategory.html">Settings</a></li>
-                    <li><a href="subcategory.html">About</a></li>
-                    <li><a href="subcategory.html">Contacts</a></li>
-                    <li><a href="subcategory.html">Blog</a></li>
-                    <li><a href="subcategory.html">News</a></li>
-                    <li><a href="subcategory.html">Article</a></li>
-                    <li><a href="subcategory.html">FAQ</a></li>
-                    <li><a href="subcategory.html">Delivery</a></li>
-                    <li><a href="subcategory.html">404</a></li>
+                    <li><a href="subcategory">Catalog</a></li>
+                    <li><a href="subcategory">Category</a></li>
+                    <li><a href="subcategory">Subcategory</a></li>
+                    <li><a href="subcategory">Product</a></li>
+                    <li><a href="subcategory">Cart</a></li>
+                    <li><a href="subcategory">Checkout</a></li>
+                    <li><a href="subcategory">Compare</a></li>
+                    <li><a href="subcategory">Brands</a></li>
+                    <li><a href="subcategory">Compare</a></li>
+                    <li><a href="subcategory">Account</a></li>
+                    <li><a href="subcategory">Favorites</a></li>
+                    <li><a href="subcategory">Personal</a></li>
+                    <li><a href="subcategory">Settings</a></li>
+                    <li><a href="subcategory">About</a></li>
+                    <li><a href="subcategory">Contacts</a></li>
+                    <li><a href="subcategory">Blog</a></li>
+                    <li><a href="subcategory">News</a></li>
+                    <li><a href="subcategory">Article</a></li>
+                    <li><a href="subcategory">FAQ</a></li>
+                    <li><a href="subcategory">Delivery</a></li>
+                    <li><a href="subcategory">404</a></li>
                   </ul>
                 </li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contacts</a></li>
                 <li>
                   <a href="compare.html"
                     >Compare<span class="uk-badge uk-margin-xsmall-left"
@@ -1259,14 +893,14 @@
                 <div>
                   <a
                     class="uk-button uk-button-default uk-margin-small uk-width-1-1"
-                    href="cart.html"
+                    href="cart"
                     >view cart</a
                   >
                 </div>
                 <div>
                   <a
                     class="uk-button uk-button-primary uk-margin-small uk-width-1-1"
-                    href="checkout.html"
+                    href="checkout"
                     >checkout</a
                   >
                 </div>

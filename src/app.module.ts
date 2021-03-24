@@ -1,4 +1,3 @@
-
 import { ReviewSanPhamModule } from './review-san-pham/review-san-pham.module';
 import { NhaCungCapModule } from './nha-cung-cap/nha-cung-cap.module';
 import { AvatarModule } from './avatar/avatar.module';
@@ -18,10 +17,12 @@ import { OrderModule } from './order/order.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { ProductService } from './product/product.service';
 import { ProductEntity } from './product/product.entity';
+import { DmSanPhamEntity } from './dm-san-pham/dm-san-pham.entity';
+import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([ProductEntity]),
+    TypeOrmModule.forFeature([ProductEntity, DmSanPhamEntity]),
     UserModule,
     RoleModule,
     AuthModule,
@@ -38,6 +39,6 @@ import { ProductEntity } from './product/product.entity';
   ],
   controllers: [
     AppController],
-  providers: [AppService, ProductService],
+  providers: [AppService, ProductService, DmSanPhamService],
 })
 export class AppModule { }
