@@ -3,7 +3,6 @@ import { Crud } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { RoleService } from './role.service';
 import { RoleEntity } from './role.entity';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { EmployeeGuard } from 'src/guard/employee.guard';
 
 @Crud({
@@ -22,7 +21,6 @@ import { EmployeeGuard } from 'src/guard/employee.guard';
   }
 })
 @UseGuards(EmployeeGuard)
-@UseGuards(JwtAuthGuard)
 @ApiBearerAuth('token')
 @ApiTags('Role')
 @Controller('role')

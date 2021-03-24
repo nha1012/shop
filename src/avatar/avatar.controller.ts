@@ -1,7 +1,6 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { AvatarService } from './avatar.service';
 import { AvatarEntity } from './avatar.entity';
 
@@ -22,7 +21,6 @@ import { AvatarEntity } from './avatar.entity';
     },
   },
 })
-@UseGuards(JwtAuthGuard)
 @ApiBearerAuth('token')
 @ApiTags('Avatar')
 @Controller('avatar')

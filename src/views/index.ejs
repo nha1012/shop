@@ -200,8 +200,7 @@
                             ></a
                           >
                         </div>
-                        <button
-                          class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart"
+                        <button class="uk-button uk-button-primary tm-product-card-add-button tm-shine js-add-to-cart" data-id="<%= product.productId%>"
                         >
                           <span
                             class="tm-product-card-add-button-icon"
@@ -910,7 +909,9 @@
         </aside>
       </div>
     </div>
-    <script src="scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/cart/add-cart.js"></script>
     <script
       src="//maps.googleapis.com/maps/api/js?key=AIzaSyClyjCemJi4m2q78gNeGkhlckpdH1hzTYA&amp;callback=initMap"
       async

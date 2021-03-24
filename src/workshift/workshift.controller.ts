@@ -1,7 +1,6 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { WorkshiftEntity } from './workshift.entity';
 import { WorkshiftService } from './workshift.service';
 
@@ -20,7 +19,6 @@ import { WorkshiftService } from './workshift.service';
     },
   },
 })
-@UseGuards(JwtAuthGuard)
 @ApiBearerAuth('token')
 @ApiTags('Workshift')
 @Controller('workshift')

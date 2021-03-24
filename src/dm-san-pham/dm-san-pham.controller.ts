@@ -1,7 +1,6 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { DmSanPhamService } from './dm-san-pham.service';
 import { DmSanPhamEntity } from './dm-san-pham.entity';
 @Crud({

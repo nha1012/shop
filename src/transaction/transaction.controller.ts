@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Post, Request, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Crud, CrudRequestInterceptor, ParsedRequest } from '@nestjsx/crud';
 import { TransactionService } from './transaction.service';
 import { TransactionEntity } from './transaction.entity';

@@ -1,5 +1,7 @@
-import { Controller, Get, Render, Req, Res } from '@nestjs/common';
+import { Controller, Get, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
+import { LocalAuthGuard } from './auth/local-auth.guard';
+import { AuthenticatedGuard } from './common/guards/authenticated.guard';
 import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 import { ProductService } from './product/product.service';
 
@@ -9,9 +11,11 @@ export class AppController {
     private readonly appService: AppService,
     private productService: ProductService,
     private danhMucSanPham: DmSanPhamService) { }
+  @UseGuards(AuthenticatedGuard)
   @Get()
   @Render('index')
-  async getComments(@Req() req, @Res() res, err) {
+  async getComments(@Request() req) {
+    console.log(req.user);
     const products = await this.productService.getProductTrending();
     const danhMucSanPhams = await this.danhMucSanPham.getAllDanhMuc();
     if (products && danhMucSanPhams) {
@@ -41,5 +45,10 @@ export class AppController {
   @Get('subcategory')
   @Render('subcategory')
   getSubcategory(@Req() req, @Res() res, err) {
+  }
+
+  @Get('auth')
+  @Render('auth')
+  getAuth(@Req() req, @Res() res, err) {
   }
 }
