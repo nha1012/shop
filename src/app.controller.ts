@@ -11,7 +11,6 @@ export class AppController {
     private readonly appService: AppService,
     private productService: ProductService,
     private danhMucSanPham: DmSanPhamService) { }
-  @UseGuards(AuthenticatedGuard)
   @Get()
   @Render('index')
   async getComments(@Request() req) {
@@ -24,11 +23,13 @@ export class AppController {
       return { productsTrending: [], danhMucSanPhams: [] }
     }
   }
+  @UseGuards(AuthenticatedGuard)
   @Get('cart')
   @Render('cart')
   getCarts(@Req() req, @Res() res, err) {
   }
 
+  @UseGuards(AuthenticatedGuard)
   @Get('checkout')
   @Render('checkout')
   getCheckout(@Req() req, @Res() res, err) {
