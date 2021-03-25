@@ -118,7 +118,7 @@
               >
                 <% if(productsTrending && productsTrending.length ){ %> <%
                 productsTrending.forEach(function(product){ %>
-                <article class="tm-product-card">
+                <article class="tm-product-card" data-id="<%= product.productId%>">
                   <div class="tm-product-card-media">
                     <div class="tm-ratio tm-ratio-4-3">
                       <a

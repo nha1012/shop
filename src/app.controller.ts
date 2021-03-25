@@ -14,7 +14,6 @@ export class AppController {
   @Get()
   @Render('index')
   async getComments(@Request() req) {
-    console.log(req.user);
     const products = await this.productService.getProductTrending();
     const danhMucSanPhams = await this.danhMucSanPham.getAllDanhMuc();
     if (products && danhMucSanPhams) {

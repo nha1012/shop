@@ -12,8 +12,6 @@ export class ProductController {
 
   @Get(':id')
   detailProduct(@Request() req, @Res() res, @Param() params) {
-    console.log(req.user);
-
     this.service.getProductById(params.id).then(value => {
       res.render('product', { product: value })
     })
