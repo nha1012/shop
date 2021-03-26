@@ -1,23 +1,30 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { OrderEntity } from './order.entity';
-import { getConnection } from "typeorm";
+import { EntityManager, getRepository } from "typeorm";
 
 @Injectable()
 export class OrderService extends TypeOrmCrudService<OrderEntity> {
-  constructor(@InjectRepository(OrderEntity) repo) {
+  constructor(
+    @InjectEntityManager() private order: EntityManager,
+    @InjectRepository(OrderEntity) repo) {
     super(repo);
   }
   getBaoBaoThongKe(req) {
     return this.repo.find(req);
   }
-  async addToCart(order) {
-    return await getConnection()
-      .createQueryBuilder()
-      .insert()
-      .into(OrderEntity)
-      .values(order)
-      .execute();
+  addToCart(order) {
+    return this.order.insert(OrderEntity, order);
+  }
+  async getCarts(userId: string) {
+    return await getRepository(OrderEntity)
+      .createQueryBuilder('orders')
+      .leftJoinAndSelect('orders.product', 'product')
+      .where("orders.status = :status and orders.userId = :userId", { status: false, userId: userId })
+      .getMany()
+  }
+  async deleteItemById(orderId: string) {
+    return await this.order.delete(OrderEntity, orderId)
   }
 }

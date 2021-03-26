@@ -160,8 +160,13 @@
           href="cart"
           uk-toggle="target: #cart-offcanvas"
           onclick="return false"
-          ><span uk-icon="cart"></span><span class="uk-badge">2</span></a
-        >
+          ><span uk-icon="cart"></span>
+          <% if(badge){ %>
+          <span class="uk-badge cart-badge__js"><%= badge %></span>
+          <% } else{ %>
+          <span class="uk-badge cart-badge__js">0</span>
+          <% } %>
+        </a>
       </div>
     </div>
   </div>

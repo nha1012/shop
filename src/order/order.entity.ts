@@ -2,12 +2,21 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsNumber } from "class-validator";
 import { ProductEntity } from "src/product/product.entity";
 import { TransactionEntity } from "src/transaction/transaction.entity";
+import { UserEntity } from "src/user/user.entity";
 import { BeforeInsert, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class OrderEntity {
   @PrimaryGeneratedColumn('uuid', { name: 'OrderId' })
   orderId: string;
+
+  @Column({ type: 'uuid', name: "UserId", nullable: true })
+  @ApiProperty({ description: 'UserId' })
+  userId: string;
+
+  @JoinColumn({ name: 'UserId' })
+  @ManyToOne(() => UserEntity, user => user.orders)
+  user: UserEntity;
 
   @Column({ type: 'uuid', name: "ProductId" })
   @ApiProperty({ description: 'ProductId' })

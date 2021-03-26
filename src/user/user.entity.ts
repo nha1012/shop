@@ -9,6 +9,7 @@ import { WorkshiftEntity } from 'src/workshift/workshift.entity';
 import { AvatarEntity } from 'src/avatar/avatar.entity';
 import { TransactionEntity } from 'src/transaction/transaction.entity';
 import { ReviewSanPhamEntity } from 'src/review-san-pham/review-san-pham.entity';
+import { OrderEntity } from 'src/order/order.entity';
 
 @Entity()
 export class UserEntity {
@@ -90,4 +91,6 @@ export class UserEntity {
   transations: TransactionEntity[]
   @OneToMany(() => ReviewSanPhamEntity, reviewSanPham => reviewSanPham.user, { cascade: true, onDelete: 'CASCADE' })
   reviewSanPhams: ReviewSanPhamEntity[]
+  @OneToMany(() => OrderEntity, order => order.user)
+  orders: ReviewSanPhamEntity[]
 }

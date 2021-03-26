@@ -19,10 +19,12 @@ import { ProductService } from './product/product.service';
 import { ProductEntity } from './product/product.entity';
 import { DmSanPhamEntity } from './dm-san-pham/dm-san-pham.entity';
 import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
+import { OrderEntity } from './order/order.entity';
+import { OrderService } from './order/order.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([ProductEntity, DmSanPhamEntity]),
+    TypeOrmModule.forFeature([ProductEntity, DmSanPhamEntity, OrderEntity]),
     UserModule,
     RoleModule,
     AuthModule,
@@ -39,6 +41,6 @@ import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
   ],
   controllers: [
     AppController],
-  providers: [AppService, ProductService, DmSanPhamService],
+  providers: [AppService, ProductService, DmSanPhamService, OrderService],
 })
 export class AppModule { }

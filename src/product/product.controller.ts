@@ -10,10 +10,4 @@ import { ProductService } from './product.service';
 export class ProductController {
   constructor(public service: ProductService) { }
 
-  @Get(':id')
-  detailProduct(@Request() req, @Res() res, @Param() params) {
-    this.service.getProductById(params.id).then(value => {
-      res.render('product', { product: value })
-    })
-  }
 }
