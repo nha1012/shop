@@ -4,24 +4,6 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AvatarService } from './avatar.service';
 import { AvatarEntity } from './avatar.entity';
 
-@Crud({
-  model: { type: AvatarEntity },
-  params: {
-    id: {
-      field: 'avatarId',
-      primary: true,
-      type: 'uuid',
-    },
-  },
-  query: {
-    join: {
-      user: {
-
-      },
-    },
-  },
-})
-@ApiBearerAuth('token')
 @ApiTags('Avatar')
 @Controller('avatar')
 export class AvatarController {

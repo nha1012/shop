@@ -9,9 +9,7 @@ import { ProductService } from './product/product.service';
 
 @Controller()
 export class AppController {
-  private carts = [];
-  private badge: number;
-  private tongTien: number;
+
   constructor(
     private readonly appService: AppService,
     private productService: ProductService,
@@ -28,14 +26,12 @@ export class AppController {
     if (req.user) {
       orders = await this.orderService.getCarts(req.user.userId);
     }
-    this.carts = orders;
     let tongTien = 0;
     orders.forEach(value => {
       tongTien += value.tongTien || 0
     })
     const badge = orders.length;
-    this.tongTien = tongTien;
-    this.badge = badge;
+
     if (products && danhMucSanPhams) {
       return { productsTrending: products, danhMucSanPhams, carts: orders, tongTien: tongTien, badge: badge }
     } else {
@@ -45,16 +41,40 @@ export class AppController {
 
 
   @Get('product/:id')
-  detailProduct(@Request() req, @Res() res, @Param() params) {
+  async detailProduct(@Request() req, @Res() res, @Param() params) {
+    let orders: OrderEntity[] = [];
+    if (req.user) {
+      orders = await this.orderService.getCarts(req.user.userId);
+    }
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+
     this.productService.getProductById(params.id).then(value => {
-      res.render('product', { product: value, carts: this.carts, tongTien: this.tongTien, badge: this.badge })
+      res.render('product', { product: value, carts: orders, tongTien: tongTien, badge: badge })
     })
   }
 
   @UseGuards(AuthenticatedGuard)
   @Get('cart')
   @Render('cart')
-  getCarts(@Req() req, @Res() res, err) {
+  async getCarts(@Req() req, @Res() res, err) {
+    const { userId } = req.user
+    if (!userId) {
+      return res.redirect('./auth/login')
+    }
+    let orders: OrderEntity[] = [];
+    if (userId) {
+      orders = await this.orderService.getCarts(userId);
+    }
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+    return { carts: orders, tongTien: tongTien, badge: badge }
   }
 
   @UseGuards(AuthenticatedGuard)

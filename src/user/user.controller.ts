@@ -3,8 +3,6 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { Crud } from '@nestjsx/crud';
 import { UserEntity } from './user.entity';
-import { AdminGuard } from 'src/guard/admin.guard';
-@UseGuards(AdminGuard)
 @ApiBearerAuth('token')
 @Crud({
   model: { type: UserEntity },

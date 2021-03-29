@@ -1,11 +1,9 @@
 import { Controller, Request, Post, UseGuards, HttpCode, Body, Req } from '@nestjs/common';
-import { ApiBody, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { LoginGuard } from 'src/common/guards/login.guard';
-import { AdminGuard } from 'src/guard/admin.guard';
 import { UserEntity } from 'src/user/user.entity';
 import { hash } from 'src/utils/auth.util';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './local-auth.guard';
 
 @Controller('auth')
 @ApiTags('auth')

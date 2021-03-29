@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { ProductEntity } from './product.entity';
-import { getRepository } from "typeorm";
+import { EntityManager, getRepository, getConnection } from "typeorm";
 
 @Injectable()
 export class ProductService extends TypeOrmCrudService<ProductEntity> {
-  constructor(@InjectRepository(ProductEntity) repo) {
+  constructor(@InjectRepository(ProductEntity) repo, @InjectEntityManager() private entityManager: EntityManager) {
     super(repo);
   }
   async getProductTrending() {
@@ -20,7 +20,16 @@ export class ProductService extends TypeOrmCrudService<ProductEntity> {
       .createQueryBuilder('product')
       .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
       .leftJoinAndSelect("product.hinhAnhSanPhams", 'url')
-      .where("product.productId = :id", { id })
+      .where("product.productId = :id", { id: id })
       .getOne()
+  }
+
+  async updateSoLuongSanPham(productId: string, soLuong: number) {
+    return await getConnection()
+      .createQueryBuilder()
+      .update(ProductEntity)
+      .set({ soLuong: soLuong })
+      .where("productId = :productId", { productId: productId })
+      .execute()
   }
 }

@@ -1,5 +1,7 @@
-function addCartItem(params, orderId){
-  return `<li class="uk-visible-toggle" data-id="${orderId}">
+let status = false;
+
+function addCartItem(params, order){
+  return `<li class="uk-visible-toggle" data-id="${order.orderId}">
             <arttcle
               ><div class="uk-grid-small" uk-grid>
                 <div class="uk-width-1-4">
@@ -23,7 +25,7 @@ function addCartItem(params, orderId){
                     uk-grid
                   >
                     <div class="uk-text-bolder uk-text-small">${params.giaKhuyenMai}</div>
-                    <div class="uk-text-meta uk-text-xsmall">1 × ${params.giaKhuyenMai}</div>
+                    <div class="uk-text-meta uk-text-xsmall">${order.qty} × ${params.giaKhuyenMai}</div>
                   </div>
                 </div>
                 <div>
@@ -31,23 +33,33 @@ function addCartItem(params, orderId){
                     class="uk-icon-link uk-text-danger uk-invisible-hover remove-order__js"
                     uk-icon="icon: close; ratio: .75"
                     uk-tooltip="Remove"
-                    data-id="${orderId}"
+                    data-id="${order.orderId}"
                   ></a>
                 </div></div
             ></arttcle>
           </li>`
 };
 function addToCart() {
-  $('.tm-product-card').on('click','.js-add-to-cart',function (params) {
+  $(document).on('click','.js-add-to-cart',function (params) {
+    let soLuongDon = 1;
     const productId = $(this).data("id");
+    const qty = +$('.tm-quantity-input').val();
+    if (qty) {
+      soLuongDon = qty
+    }
     $.ajax({
       method:'POST',
-      url: "./order",
-      data: {productId: productId},
+      url: "/order",
+      data: {productId: productId, qty: soLuongDon},
       success: function (result) {
-        $('.uk-list-divider').append(addCartItem(result.product, result.order.generatedMaps[0].orderId));
-        getTongTienCart(result.order.generatedMaps[0].tongTien);
-        addBadge();
+        if (result.order) {
+          $('.uk-list-divider').find(`.uk-visible-toggle[data-id="${result.order.orderId}"]`).remove()
+          $('.uk-list-divider').append(addCartItem(result.product, result.order));
+          getTongTienCart(result.order.tongTien);
+          addBadge();
+        }else{
+          console.log(result);
+        }
       },
       error: function(err){
        console.log(err);
@@ -58,6 +70,9 @@ function addToCart() {
 function getTongTienCart(tongTienCartItem){
   const tongTienHienTai = +$('.tong-cong__js').get()[0].innerHTML;
   $('.tong-cong__js').text(tongTienHienTai + tongTienCartItem);
+};
+function addSum(tongTien){
+  $('.sum-cart__js').text(tongTien);
 };
 function deleteTongTienCart(tongTienCartItem){
   const tongTienHienTai = +$('.tong-cong__js').get()[0].innerHTML;
@@ -71,15 +86,45 @@ function deleteBadge() {
   const tongTienHienTai = +$('.cart-badge__js').get()[0].innerHTML;
   $('.cart-badge__js').text(tongTienHienTai - 1);
 };
+function incrementOrder(orderQty, productId) {
+  if (status) {
+    return;
+  }
+  status = true;
+  const qty = +$('.tm-quantity-input').val();
+  const newQty = qty + orderQty;
+  $.ajax({
+    method:'PUT',
+    url: "/order",
+    data: {productId: productId, qty: newQty},
+    success: function (result) {
+      status = false;
+      if (result.order) {
+        $('.tm-quantity-input').val(newQty);
+        if (qty<newQty) {
+          addSum(result.order.tongTien);
+        } else {
+          addSum(result.order.tongTien);
+        }
+      }else{
+        console.log(result);
+      }
+    },
+    error: function(err){
+     console.log(err);
+    }
+  })
+}
 function removeCartItem() {
   $(document).on('click', '.remove-order__js', function (params) {
     const orderId = $(this).data("id");
     $.ajax({
       method:'DELETE',
-      url: "./order",
+      url: "/order",
       data: {orderId: orderId},
       success: function (result) {
         deleteBadge();
+        $('.cart-wrapper__js').find(`.cart-item__page[data-id="${result.order.orderId}"]`).remove();
         $('.uk-list-divider').find(`.uk-visible-toggle[data-id="${result.order.orderId}"]`).remove();
         deleteTongTienCart(result.order.tongTien)
       },
