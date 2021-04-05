@@ -21,6 +21,7 @@ import { DmSanPhamEntity } from './dm-san-pham/dm-san-pham.entity';
 import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 import { OrderEntity } from './order/order.entity';
 import { OrderService } from './order/order.service';
+import { ChuongTrinhKhuyenMaiValueModule } from './chuong-trinh-khuyen-mai-value/chuong-trinh-khuyen-mai-value.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
@@ -36,6 +37,7 @@ import { OrderService } from './order/order.service';
     ReviewSanPhamModule,
     HinhAnhSanPhamModule,
     ChuongTrinhKhuyenMaiModule,
+    ChuongTrinhKhuyenMaiValueModule,
     OrderModule,
     TransactionModule,
   ],

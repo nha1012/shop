@@ -6,7 +6,6 @@ import { OrderEntity } from './order.entity';
 import { ProductService } from 'src/product/product.service';
 import { AuthenticatedGuard } from 'src/common/guards/authenticated.guard';
 import { MSG_ORDER } from 'src/messages/order';
-@UseGuards(AuthenticatedGuard)
 @ApiTags('Order')
 @Controller('order')
 export class OrderController {
@@ -14,6 +13,7 @@ export class OrderController {
     public service: OrderService,
     private productService: ProductService) { }
 
+  @UseGuards(AuthenticatedGuard)
   @Post()
   async addToCart(@Request() req, @Res() res) {
     try {
@@ -30,6 +30,7 @@ export class OrderController {
       if (orderProduct) {
         const orderUpdate = orderProduct;
         orderUpdate.qty = +qty + orderUpdate.qty
+        orderUpdate.tongTien = orderUpdate.qty * orderUpdate.tongTien;
         await this.service.updateOrderByProductId(orderUpdate)
         await this.productService.updateSoLuongSanPham(product.productId, product.soLuong - qty)
         return res.status(200).send({ product: product, order: orderUpdate });
@@ -37,8 +38,8 @@ export class OrderController {
         const orderEntity = {
           productId: productId,
           status: false,
-          qty: qty,
-          tongTien: product.giaKhuyenMai,
+          qty: +qty,
+          tongTien: product.giaKhuyenMai * +qty,
           userId: req.user.userId
         }
         const order = await this.service.addToCart(orderEntity);

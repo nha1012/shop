@@ -80,7 +80,21 @@ export class AppController {
   @UseGuards(AuthenticatedGuard)
   @Get('checkout')
   @Render('checkout')
-  getCheckout(@Req() req, @Res() res, err) {
+  async checkout(@Req() req, @Res() res, err) {
+    const { userId } = req.user
+    if (!userId) {
+      return res.redirect('./auth/login')
+    }
+    let orders: OrderEntity[] = [];
+    if (userId) {
+      orders = await this.orderService.getCarts(userId);
+    }
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+    return { carts: orders, tongTien: tongTien, badge: badge }
   }
 
   @Get('contact')
