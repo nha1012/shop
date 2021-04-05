@@ -71,19 +71,12 @@
                                 ><div
                                   class="uk-form-label uk-form-label-required"
                                 >
-                                  Họ
+                                  Họ và tên
                                 </div>
-                                <input name="ho" class="uk-input" type="text" required
-                              /></label>
-                            </div>
-                            <div>
-                              <label
-                                ><div
-                                  class="uk-form-label uk-form-label-required"
-                                >
-                                  Tên
-                                </div>
-                                <input name="ten" class="uk-input" type="text" required
+                                <input
+                                  class="uk-input input-display-name__js"
+                                  type="text"
+                                  required
                               /></label>
                             </div>
                             <div>
@@ -93,7 +86,11 @@
                                 >
                                   Số điện thoại
                                 </div>
-                                <input name="phoneNumber" class="uk-input" type="tel" required
+                                <input
+                                  name="phoneNumber"
+                                  class="uk-input input-phone-number__js"
+                                  type="tel"
+                                  required
                               /></label>
                             </div>
                             <div>
@@ -103,7 +100,11 @@
                                 >
                                   Email
                                 </div>
-                                <input name="email" class="uk-input" type="email" required
+                                <input
+                                  name="email"
+                                  class="uk-input input-email__js"
+                                  type="email"
+                                  required
                               /></label>
                             </div>
                           </div>
@@ -114,67 +115,7 @@
                         <div
                           class="uk-card uk-card-default uk-card-small uk-card-body tm-ignore-container"
                         >
-                          <div
-                            class="uk-grid-small uk-grid-match uk-child-width-1-1 uk-child-width-1-3@s uk-flex-center"
-                            uk-switcher="toggle: &gt; * &gt; .tm-choose"
-                            uk-grid
-                          >
-                            <div>
-                              <a class="tm-choose" href="#"
-                                ><div class="tm-choose-title">
-                                  pick up from store
-                                </div>
-                                <div class="tm-choose-description">
-                                  Free, tomorrow
-                                </div></a
-                              >
-                            </div>
-                            <div>
-                              <a class="tm-choose" href="#"
-                                ><div class="tm-choose-title">
-                                  delivery in city
-                                </div>
-                                <div class="tm-choose-description">
-                                  Free, tomorrow
-                                </div></a
-                              >
-                            </div>
-                            <div>
-                              <a class="tm-choose" href="#"
-                                ><div class="tm-choose-title">
-                                  regional delivery
-                                </div>
-                                <div class="tm-choose-description">
-                                  Via Russian Post or postal courier services.
-                                  Sending to any country
-                                </div></a
-                              >
-                            </div>
-                          </div>
-                          <div class="uk-switcher uk-margin">
-                            <section>
-                              <div
-                                class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s"
-                                uk-grid
-                              >
-                                <div>
-                                  <figure
-                                    class="uk-card-media-top tm-ratio tm-ratio-16-9 js-map"
-                                    data-latitude="59.9356728"
-                                    data-longitude="30.3258604"
-                                    data-zoom="14"
-                                  ></figure>
-                                </div>
-                                <div class="uk-text-small">
-                                  <div class="uk-text-bolder">Store Name</div>
-                                  <div>
-                                    St.&nbsp;Petersburg,
-                                    Nevsky&nbsp;Prospect&nbsp;28
-                                  </div>
-                                  <div>Daily 10:00–22:00</div>
-                                </div>
-                              </div>
-                            </section>
+                          <div class="uk-margin">
                             <section>
                               <div class="uk-grid-small" uk-grid>
                                 <div class="uk-width-expand">
@@ -182,19 +123,11 @@
                                     ><div
                                       class="uk-form-label uk-form-label-required"
                                     >
-                                      Street
+                                      Địa chỉ
                                     </div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div class="uk-width-1-3 uk-width-1-6@s">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      House
-                                    </div>
-                                    <input class="uk-input" type="text"
+                                    <input
+                                      class="uk-input input-address__js"
+                                      type="text"
                                   /></label>
                                 </div>
                               </div>
@@ -202,171 +135,18 @@
                                 class="uk-grid-small uk-child-width-1-3 uk-child-width-1-4@s"
                                 uk-grid
                               >
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Building</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Entrance</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Floor</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Apartment</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
                                 <div class="uk-width-1-1">
                                   <label
-                                    ><div class="uk-form-label">Comment</div>
+                                    ><div class="uk-form-label">Yêu cầu</div>
                                     <textarea
-                                      class="uk-textarea"
+                                      class="uk-textarea input-message__js"
                                       rows="5"
-                                      placeholder="Additional information: phone numbers or doorphone code"
+                                      placeholder="Nhập yêu cầu về đơn hàng hoặc là thời gian mong muốn nhận hàng"
                                     ></textarea>
                                   </label>
-                                </div>
-                              </div>
-                              <div
-                                class="uk-grid-small uk-child-width-1-2 uk-child-width-1-4@s"
-                                uk-grid
-                              >
-                                <div class="uk-width-1-1 uk-text-meta">
-                                  Choose a convenient date and delivery interval
-                                </div>
-                                <div>
-                                  <select class="uk-select">
-                                    <option>Tomorrow</option>
-                                    <option>25 May</option>
-                                    <option>26 May</option>
-                                    <option>27 May</option>
-                                    <option>28 May</option>
-                                    <option>29 May</option>
-                                    <option>30 May</option>
-                                    <option>1 June</option>
-                                  </select>
-                                </div>
-                                <div>
-                                  <select class="uk-select">
-                                    <option>09:00 – 12:00</option>
-                                    <option>12:00 – 15:00</option>
-                                    <option>15:00 – 18:00</option>
-                                    <option>18:00 – 21:00</option>
-                                    <option>21:00 – 23:00</option>
-                                  </select>
                                 </div>
                               </div>
                             </section>
-                            <div>
-                              <div class="uk-grid-small" uk-grid>
-                                <div class="uk-width-1-1">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      Country
-                                    </div>
-                                    <select class="uk-select">
-                                      <option>Choose the country</option>
-                                      <option value="RU">Russia</option>
-                                    </select></label
-                                  >
-                                </div>
-                              </div>
-                              <div class="uk-grid-small" uk-grid>
-                                <div class="uk-width-expand">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      City
-                                    </div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div class="uk-width-1-3 uk-width-1-6@s">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      Post Code
-                                    </div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                              </div>
-                              <div class="uk-grid-small" uk-grid>
-                                <div class="uk-width-expand">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      Street
-                                    </div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div class="uk-width-1-3 uk-width-1-6@s">
-                                  <label
-                                    ><div
-                                      class="uk-form-label uk-form-label-required"
-                                    >
-                                      House
-                                    </div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                              </div>
-                              <div
-                                class="uk-grid-small uk-child-width-1-3 uk-child-width-1-4@s"
-                                uk-grid
-                              >
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Building</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Entrance</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Floor</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div>
-                                  <label
-                                    ><div class="uk-form-label">Apartment</div>
-                                    <input class="uk-input" type="text"
-                                  /></label>
-                                </div>
-                                <div class="uk-width-1-1">
-                                  <label
-                                    ><div class="uk-form-label">Comment</div>
-                                    <textarea
-                                      class="uk-textarea"
-                                      rows="5"
-                                      placeholder="Additional information: phone numbers or doorphone code"
-                                    ></textarea>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </section>
@@ -384,30 +164,24 @@
                               <div>
                                 <a class="tm-choose" href="#"
                                   ><div class="tm-choose-title">
-                                    payment upon receipt
+                                    Thanh toán qua momo
+                                  </div>
+                                </a>
+                              </div>
+                              <div>
+                                <a class="tm-choose" href="#"
+                                  ><div class="tm-choose-title">
+                                    Thanh toán tiền mặt
                                   </div>
                                   <div class="tm-choose-description">
-                                    Cash, credit card
+                                    Nhận hàng trả tiền
                                   </div></a
                                 >
                               </div>
                               <div>
                                 <a class="tm-choose" href="#"
                                   ><div class="tm-choose-title">
-                                    online by card
-                                  </div>
-                                  <div class="tm-choose-description">
-                                    Visa, MasterCard
-                                  </div></a
-                                >
-                              </div>
-                              <div>
-                                <a class="tm-choose" href="#"
-                                  ><div class="tm-choose-title">
-                                    electronic payment
-                                  </div>
-                                  <div class="tm-choose-description">
-                                    PayPal, Yandex.Money, QIWI
+                                    thanh toán qua thẻ tín dụng
                                   </div></a
                                 >
                               </div>

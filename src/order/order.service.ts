@@ -3,6 +3,7 @@ import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { OrderEntity } from './order.entity';
 import { EntityManager, getRepository, getConnection } from "typeorm";
+import { TransactionEntity } from 'src/transaction/transaction.entity';
 
 @Injectable()
 export class OrderService extends TypeOrmCrudService<OrderEntity> {
@@ -42,6 +43,14 @@ export class OrderService extends TypeOrmCrudService<OrderEntity> {
       .update(OrderEntity)
       .set(value)
       .where("productId = :productId and status = :status", { productId: value.productId, status: false })
+      .execute()
+  }
+  async updateOrderTransaction(tranSactionId: string, orderId: string) {
+    return await getConnection()
+      .createQueryBuilder()
+      .update(OrderEntity)
+      .set({ transactionId: tranSactionId, status: true })
+      .where('orderId = :orderId', { orderId: orderId })
       .execute()
   }
 }
