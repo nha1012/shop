@@ -99,15 +99,15 @@ export class AppController {
 
   @Get('contact')
   @Render('contact')
-  getContact(@Req() req, @Res() res, err) {
+  getContact(@Req() req, @Res() res) {
   }
   @Get('about')
   @Render('about')
-  getAbout(@Req() req, @Res() res, err) {
+  getAbout(@Req() req, @Res() res) {
   }
   @Get('subcategory')
   @Render('subcategory')
-  getSubcategory(@Req() req, @Res() res, err) {
+  getSubcategory(@Req() req, @Res() res) {
   }
 
   @Get('auth')

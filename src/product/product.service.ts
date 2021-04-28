@@ -13,6 +13,7 @@ export class ProductService extends TypeOrmCrudService<ProductEntity> {
     return getRepository(ProductEntity)
       .createQueryBuilder('product')
       .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
+      .limit(8)
       .getMany()
   }
   async getProductById(id: string) {
