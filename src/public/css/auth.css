@@ -83,7 +83,11 @@ span.icon2 {
 
 /*--turnright--*/
 .turnright{
-	border-left: 5px solid white;
+	width: 1px;
+	height: 100%;
+	float: left;
+	border: 2px ridge silver ;
+	border-radius: 2px;
 }
 /*--responsive--*/
 
