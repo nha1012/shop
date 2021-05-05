@@ -1,18 +1,15 @@
-import { Body, Controller, Delete, Get, Post, Put, Req, Request, Res, UseGuards } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Crud } from '@nestjsx/crud';
+import { Controller, Delete, Post, Put, Redirect, Request, Res, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { OrderService } from './order.service';
-import { OrderEntity } from './order.entity';
 import { ProductService } from 'src/product/product.service';
-import { AuthenticatedGuard } from 'src/common/guards/authenticated.guard';
 import { MSG_ORDER } from 'src/messages/order';
+import { AuthenticatedGuard } from 'src/common/guards/authenticated.guard';
 @ApiTags('Order')
 @Controller('order')
 export class OrderController {
   constructor(
     public service: OrderService,
     private productService: ProductService) { }
-
   @UseGuards(AuthenticatedGuard)
   @Post()
   async addToCart(@Request() req, @Res() res) {

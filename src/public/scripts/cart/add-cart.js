@@ -1,5 +1,51 @@
 let status = false;
 
+function failsAdd() {
+  new Toast({
+    message: 'Thêm vào giỏ hàng thất bại!',
+    type: 'warning',
+  });
+}
+function failsAddLogin() {
+  new Toast({
+    message: 'Vui lòng đăng nhập trước khi order!',
+    type: 'warning',
+    customButtons: [
+      {
+        text: 'Refresh the page',
+        onClick: function() {
+          window.location.reload();
+        }
+      },
+      {
+        text: 'Đăng nhập',
+        onClick: function() {
+          location.replace("/auth")
+        }
+      }
+    ]
+  });
+}
+function successAdd() {
+  new Toast({
+    message: 'Thêm vào giỏ hàng thành công.',
+    type: 'success',
+    customButtons: [
+      // {
+      //   text: 'Refresh the page',
+      //   onClick: function() {
+      //     window.location.reload();
+      //   }
+      // },
+      // {
+      //   text: 'Follow @ireaderinokun',
+      //   onClick: function() {
+      //     window.open('https://twitter.com/ireaderinokun');
+      //   }
+      // }
+    ]
+  });
+}
 function addCartItem(params, order){
   return `<li class="uk-visible-toggle" data-id="${order.orderId}">
             <arttcle
@@ -57,11 +103,17 @@ function addToCart() {
           $('.uk-list-divider').append(addCartItem(result.product, result.order));
           getTongTienCart(result.order.tongTien);
           addBadge();
+          successAdd();
+
         }else{
+          failsAdd();
           console.log(result);
         }
       },
       error: function(err){
+        if (err.status === 403) {
+          failsAddLogin();
+        }
        console.log(err);
       }
     })

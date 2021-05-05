@@ -14,6 +14,14 @@ export class ProductService extends TypeOrmCrudService<ProductEntity> {
       .createQueryBuilder('product')
       .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
       .limit(8)
+      .where('product.soLuong > 0')
+      .getMany()
+  }
+  async getAllProduct() {
+    return getRepository(ProductEntity)
+      .createQueryBuilder('product')
+      .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
+      .where('product.soLuong > 0')
       .getMany()
   }
   async getProductById(id: string) {
@@ -21,6 +29,10 @@ export class ProductService extends TypeOrmCrudService<ProductEntity> {
       .createQueryBuilder('product')
       .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
       .leftJoinAndSelect("product.hinhAnhSanPhams", 'url')
+      .leftJoinAndSelect("product.attributeValues",'attributeValues')
+      .leftJoinAndSelect("attributeValues.attributes", 'attributes')
+      .leftJoinAndSelect("product.reviewSanPhams",'reviewSanPhams')
+      .leftJoinAndSelect("reviewSanPhams.user",'user')
       .where("product.productId = :id", { id: id })
       .getOne()
   }
@@ -32,5 +44,13 @@ export class ProductService extends TypeOrmCrudService<ProductEntity> {
       .set({ soLuong: soLuong })
       .where("productId = :productId", { productId: productId })
       .execute()
+  }
+  async getSanPhamTuongTu(danhMucSanPhamId: string, productId: string) {
+    return getRepository(ProductEntity)
+      .createQueryBuilder('product')
+      .leftJoinAndSelect("product.danhMucSanPham", 'tenDanhMuc')
+      .leftJoinAndSelect("product.hinhAnhSanPhams", 'url')
+      .where("product.danhMucSanPhamId = :danhMucSanPhamId and product.productId != :productId", { danhMucSanPhamId, productId })
+      .getMany()
   }
 }
