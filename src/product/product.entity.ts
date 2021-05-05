@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjsx/crud/lib/crud';
 import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
+import { AttributeValueEntity } from 'src/attribute-value/attribute-value.entity';
 import { ChuongTrinhKhuyenMaiValueEntity } from 'src/chuong-trinh-khuyen-mai-value/chuong-trinh-khuyen-mai-value.entity';
 import { DmSanPhamEntity } from 'src/dm-san-pham/dm-san-pham.entity';
 import { HaSanPhamEntity } from 'src/ha-san-pham/ha-san-pham.entity';
@@ -77,4 +78,7 @@ export class ProductEntity {
   orders: OrderEntity[]
   @OneToMany(() => ChuongTrinhKhuyenMaiValueEntity, ctkmvl => ctkmvl.product)
   chuongTrinhKhuyenMaiValues: ChuongTrinhKhuyenMaiValueEntity[];
+
+  @OneToMany(() => AttributeValueEntity, attributeValue => attributeValue.product)
+  attributeValues: AttributeValueEntity[]
 }

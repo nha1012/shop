@@ -8,4 +8,7 @@ export class ReviewSanPhamService extends TypeOrmCrudService<ReviewSanPhamEntity
   constructor(@InjectRepository(ReviewSanPhamEntity) repo) {
     super(repo);
   }
+  async addReview(review) {
+    return await this.repo.save(review);
+  }
 }

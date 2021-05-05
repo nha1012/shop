@@ -1,12 +1,10 @@
-import { Controller, Get, Param, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Global, Param, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
-import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthenticatedGuard } from './common/guards/authenticated.guard';
 import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 import { OrderEntity } from './order/order.entity';
 import { OrderService } from './order/order.service';
 import { ProductService } from './product/product.service';
-
 @Controller()
 export class AppController {
 
@@ -31,7 +29,6 @@ export class AppController {
       tongTien += value.tongTien || 0
     })
     const badge = orders.length;
-
     if (products && danhMucSanPhams) {
       return { productsTrending: products, danhMucSanPhams, carts: orders, tongTien: tongTien, badge: badge }
     } else {
@@ -52,8 +49,10 @@ export class AppController {
     })
     const badge = orders.length;
 
-    this.productService.getProductById(params.id).then(value => {
-      res.render('product', { product: value, carts: orders, tongTien: tongTien, badge: badge })
+    this.productService.getProductById(params.id).then(async value => {
+      value.danhMucSanPhamId
+      const sanPhamTuongTus = await this.productService.getSanPhamTuongTu(value.danhMucSanPhamId, value.productId);      
+      res.render('product', { product: value, sanPhamTuongTus: sanPhamTuongTus, carts: orders, tongTien: tongTien, badge: badge })
     })
   }
 
@@ -99,15 +98,54 @@ export class AppController {
 
   @Get('contact')
   @Render('contact')
-  getContact(@Req() req, @Res() res) {
+  async getContact(@Req() req, @Res() res) {
+    let orders: OrderEntity[] = [];
+    if (req.user) {
+      orders = await this.orderService.getCarts(req.user.userId);
+    }
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+      return { carts: orders, tongTien: tongTien, badge: badge }
   }
+
   @Get('about')
   @Render('about')
-  getAbout(@Req() req, @Res() res) {
+  async getAbout(@Req() req, @Res() res) {
+    let orders: OrderEntity[] = [];
+    if (req.user) {
+      orders = await this.orderService.getCarts(req.user.userId);
+    }
+    
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+      return { carts: orders, tongTien: tongTien, badge: badge }
   }
   @Get('subcategory')
   @Render('subcategory')
-  getSubcategory(@Req() req, @Res() res) {
+  async getSubcategory(@Req() req, @Res() res) {
+    const products = await this.productService.getProductTrending();
+    const danhMucSanPhams = await this.danhMucSanPham.getAllDanhMuc();
+    let orders: OrderEntity[] = [];
+    if (req.user) {
+      orders = await this.orderService.getCarts(req.user.userId);
+    }
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+
+    if (products && danhMucSanPhams) {
+      return { productsTrending: products, danhMucSanPhams, carts: orders, tongTien: tongTien, badge: badge }
+    } else {
+      return { productsTrending: [], danhMucSanPhams: [], carts: orders, tongTien: tongTien, badge: badge }
+    }
   }
 
   @Get('auth')

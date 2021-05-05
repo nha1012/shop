@@ -27,7 +27,7 @@ export class ReviewSanPhamEntity {
 
   @Column({ type: 'int', name: "SoSao" })
   @IsNumber()
-  @ApiProperty({ description: 'SoSao' })
+  @ApiProperty({ description: 'SoSao', nullable: true })
   soSao: number;
 
   @Column({ type: 'varchar', name: "DanhGia" })
