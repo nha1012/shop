@@ -1,4 +1,4 @@
-import { Controller, Request, Post, UseGuards, HttpCode, Body, Req } from '@nestjs/common';
+import { Controller, Request, Post, UseGuards, HttpCode, Body, Req, Res } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { LoginGuard } from 'src/common/guards/login.guard';
 import { UserEntity } from 'src/user/user.entity';
@@ -17,9 +17,9 @@ export class AuthController {
   @HttpCode(200)
   @ApiBody({ type: UserEntity })
 
-  async login(@Request() req) {
+  async login(@Request() req, @Res() res) {
     req.user = req.user;
-    return req.user;
+    return res.redirect('/')
   }
 
   // Chức năng đăng ký
