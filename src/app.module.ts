@@ -22,10 +22,12 @@ import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 import { OrderEntity } from './order/order.entity';
 import { OrderService } from './order/order.service';
 import { ChuongTrinhKhuyenMaiValueModule } from './chuong-trinh-khuyen-mai-value/chuong-trinh-khuyen-mai-value.module';
+import { UserEntity } from './user/user.entity';
+import { UserService } from './user/user.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([ProductEntity, DmSanPhamEntity, OrderEntity]),
+    TypeOrmModule.forFeature([ProductEntity, DmSanPhamEntity, OrderEntity, UserEntity]),
     UserModule,
     RoleModule,
     AuthModule,
@@ -43,6 +45,6 @@ import { ChuongTrinhKhuyenMaiValueModule } from './chuong-trinh-khuyen-mai-value
   ],
   controllers: [
     AppController],
-  providers: [AppService, ProductService, DmSanPhamService, OrderService],
+  providers: [AppService, ProductService, DmSanPhamService, OrderService, UserService],
 })
 export class AppModule { }

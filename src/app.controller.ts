@@ -1,10 +1,11 @@
-import { Controller, Get, Global, Param, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Global, Param, Post, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AuthenticatedGuard } from './common/guards/authenticated.guard';
 import { DmSanPhamService } from './dm-san-pham/dm-san-pham.service';
 import { OrderEntity } from './order/order.entity';
 import { OrderService } from './order/order.service';
 import { ProductService } from './product/product.service';
+import { UserService } from './user/user.service';
 @Controller()
 export class AppController {
 
@@ -13,6 +14,8 @@ export class AppController {
     private productService: ProductService,
     private danhMucSanPham: DmSanPhamService,
     private orderService: OrderService,
+    private userService: UserService,
+
   ) { }
 
   @Get()
@@ -151,10 +154,41 @@ export class AppController {
   @Get('auth')
   @Render('auth')
   getAuth(@Req() req, @Res() res, err) {
+    if (req.user) {
+      return res.redirect("/user")
+    }
   }
 
   @Get('auth/register')
   @Render('register')
   getRegister(@Req() req, @Res() res, err) {
+  }
+
+  @Post('/log-out')
+  logOut(@Req() req, @Res() res, err) {
+    req.logout();
+    return res.redirect('/auth')
+  }
+
+  @Get('user')
+  @Render('user')
+  async renderUser(@Req() req, @Res() res, err) {
+    const { user } = req;
+    let orders: OrderEntity[] = [];
+    if (req.user) {
+      orders = await this.orderService.getCarts(req.user.userId);
+    }
+    
+    let tongTien = 0;
+    orders.forEach(value => {
+      tongTien += value.tongTien || 0
+    })
+    const badge = orders.length;
+    if (user) {
+      const userHandle = await this.userService.getUserById(user.userId);
+      return {user: userHandle, carts: orders, tongTien: tongTien, badge: badge}
+    }else{
+      return res.redirect('/auth')
+    }
   }
 }
