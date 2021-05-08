@@ -162,6 +162,7 @@ export class AppController {
   @Get('auth/register')
   @Render('register')
   getRegister(@Req() req, @Res() res, err) {
+    return {message:""}
   }
 
   @Post('/log-out')

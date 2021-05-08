@@ -90,7 +90,7 @@ span.icon2 {
   border: none;
   padding: 0.7rem;
   outline: none;
-  width: 20%;
+  width: 30%;
   font-size: 1em;
   cursor: pointer;
   letter-spacing: 1px;
@@ -105,6 +105,27 @@ span.icon2 {
   transition: 0.5s all;
 }
 
+
+.sub-main input[type="button"]{
+	color:white;
+	background: #ea2858;
+	border: none;
+	padding: 0.7rem;
+	outline: none;
+	width: 30%;
+	font-size: 1em;
+	cursor: pointer;
+	letter-spacing: 1px;
+	font-weight: 400;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	transition: 0.5s all;
+	border-radius: 30px;
+  }
+  .sub-main input[type="button"]:hover{
+	background: #fff;
+	color: #000;
+	transition: 0.5s all;
+  }
 /*--responsive--*/
 
 @media(max-width: 1680px){

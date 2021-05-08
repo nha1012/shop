@@ -47,7 +47,6 @@ export class OrderEntity {
   tongTien: number;
   @CreateDateColumn()
   createDate: Date
-
   @UpdateDateColumn()
   updateDateColumn: Date
 }
