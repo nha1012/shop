@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cart</title>
+    <title>Giỏ hàng</title>
     <link
       rel="stylesheet"
       href="//fonts.googleapis.com/css?family=Roboto:400,500"
@@ -22,11 +22,11 @@
             <div class="uk-grid-medium uk-child-width-1-1" uk-grid>
               <div class="uk-text-center">
                 <ul class="uk-breadcrumb uk-flex-center uk-margin-remove">
-                  <li><a href="/">Home</a></li>
-                  <li><span>Cart</span></li>
+                  <li><a href="/">Trang chủ</a></li>
+                  <li><span>Giỏ hàng</span></li>
                 </ul>
                 <h1 class="uk-margin-small-top uk-margin-remove-bottom">
-                  Cart
+                  Giỏ hàng
                 </h1>
               </div>
               <div>
@@ -39,15 +39,15 @@
                         class="uk-card-header uk-text-uppercase uk-text-muted uk-text-center uk-text-small uk-visible@m"
                       >
                         <div class="uk-grid-small uk-child-width-1-2" uk-grid>
-                          <div>product</div>
+                          <div>Sản phẩm</div>
                           <div>
                             <div
                               class="uk-grid-small uk-child-width-expand"
                               uk-grid
                             >
-                              <div>price</div>
-                              <div class="tm-quantity-column">quantity</div>
-                              <div>sum</div>
+                              <div>Giá bán</div>
+                              <div class="tm-quantity-column">Số lượng</div>
+                              <div>Tổng</div>
                               <div class="uk-width-auto">
                                 <div style="width: 20px"></div>
                               </div>
@@ -99,7 +99,7 @@
                             >
                               <div>
                                 <div class="uk-text-muted uk-hidden@m">
-                                  Price
+                                  Giá bán
                                 </div>
                                 <div><%= cartItem.product.giaKhuyenMai%></div>
                               </div>
@@ -120,7 +120,7 @@
                                 ></a>
                               </div>
                               <div>
-                                <div class="uk-text-muted uk-hidden@m">Sum</div>
+                                <div class="uk-text-muted uk-hidden@m">Tổng</div>
                                 <div class="sum-cart__js">
                                   <%= cartItem.tongTien%>
                                 </div>
@@ -148,7 +148,7 @@
                       <div class="uk-card-body">
                         <div class="uk-grid-small" uk-grid>
                           <div class="uk-width-expand uk-text-muted">
-                            Subtotal
+                            Tổng
                           </div>
                           <div class="tong-cong__js"><%= tongTien%>VND</div>
                         </div>
@@ -163,7 +163,7 @@
                         <a
                           class="uk-button uk-button-primary uk-margin-small uk-width-1-1"
                           href="checkout"
-                          >checkout</a
+                          >Thủ tục thanh toán</a
                         >
                       </div>
                     </div>
@@ -291,9 +291,7 @@
                     alt="Logo"
                 /></a>
                 <p class="uk-text-small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  ut mauris eros. Nulla quis ante sed tortor efficitur
-                  facilisis.
+                  Chúng tôi luôn mang đến những sản phẩm cao cấp chính hãng đến tay khách hàng.
                 </p>
                 <ul class="uk-iconnav">
                   <li><a href="" title="Facebook" uk-icon="facebook"></a></li>
@@ -308,19 +306,18 @@
                 <nav class="uk-grid-small uk-child-width-1-2" uk-grid>
                   <div>
                     <ul class="uk-nav uk-nav-default">
-                      <li><a href="catalog.html">Catalog</a></li>
-                      <li><a href="brands.html">Brands</a></li>
-                      <li><a href="delivery.html">Delivery</a></li>
-                      <li><a href="faq.html">FAQ</a></li>
-                      <li><a href="">Payment</a></li>
+                      <li><a href="catalog.html">Mục lục</a></li>
+                      <li><a href="brands.html">Nhãn hiệu</a></li>
+                      <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                      <li><a href="">Thanh toán</a></li>
                     </ul>
                   </div>
                   <div>
                     <ul class="uk-nav uk-nav-default">
-                      <li><a href="about">About</a></li>
-                      <li><a href="contact">Contacts</a></li>
+                      <li><a href="about">Thông tin</a></li>
+                      <li><a href="contact">Mục lục</a></li>
                       <li><a href="blog.html">Blog</a></li>
-                      <li><a href="news.html">News</a></li>
+                      <li><a href="news.html">Tin tức</a></li>
                     </ul>
                   </div>
                 </nav>
@@ -333,13 +330,13 @@
                         class="uk-margin-small-right"
                         uk-icon="receiver"
                       ></span
-                      ><span class="tm-pseudo">8 800 799 99 99</span></a
+                      ><span class="tm-pseudo">+84979420120</span></a
                     >
                   </li>
                   <li>
                     <a class="uk-link-muted" href=""
                       ><span class="uk-margin-small-right" uk-icon="mail"></span
-                      ><span class="tm-pseudo">example@example.com</span></a
+                      ><span class="tm-pseudo">nguyenduyduong070699@gmail.com</span></a
                     >
                   </li>
                   <li>
@@ -349,14 +346,14 @@
                         uk-icon="location"
                       ></span
                       ><span
-                        >St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</span
+                        >St.&nbsp;Nguyễn Văn Linh, Quận Thanh Khê&nbsp;Đà Nẵng&nbsp;</span
                       >
                     </div>
                   </li>
                   <li>
                     <div class="uk-text-muted">
                       <span class="uk-margin-small-right" uk-icon="clock"></span
-                      ><span>Daily 10:00–22:00</span>
+                      ><span>Giờ mở cửa 10:00–22:00</span>
                     </div>
                   </li>
                 </ul>
@@ -365,7 +362,7 @@
                 <form class="uk-form-stacked">
                   <label
                     ><div class="uk-form-label uk-text-muted">
-                      Subscribe for updates
+                      Theo dõi
                     </div>
                     <div class="uk-inline uk-width-1-1">
                       <a
@@ -381,9 +378,6 @@
                       /></div
                   ></label>
                 </form>
-                <div class="uk-margin uk-text-small uk-text-muted">
-                  Shopping Categories icons by Jaro Sigrist from Noun Project
-                </div>
               </div>
             </div>
           </div>
@@ -395,14 +389,14 @@
             <header class="uk-card-header uk-flex uk-flex-middle">
               <div>
                 <a class="uk-link-muted uk-text-bold" href=""
-                  >8 800 799 99 99</a
+                  >+84979420120</a
                 >
                 <div
                   class="uk-text-xsmall uk-text-muted"
                   style="margin-top: -2px"
                 >
-                  <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
-                  <div>Daily 10:00–22:00</div>
+                  <div>St.&nbsp;Nguyễn Văn Linh, Quận Thanh Khê&nbsp;Đà Nẵng&nbsp;</div>
+                  <div>Giờ mở cửa 10:00–22:00</div>
                 </div>
               </div>
             </header>
@@ -412,29 +406,29 @@
                 uk-nav
               >
                 <li class="uk-parent">
-                  <a href="catalog.html">Catalog</a>
+                  <a href="catalog.html">Danh mục</a>
                   <ul class="uk-nav-sub uk-list-divider">
                     <li>
-                      <a href="subcategory">Laptops &amp; Tablets</a>
+                      <a href="subcategory">Máy tính &amp; Máy tính bảng</a>
                     </li>
-                    <li><a href="subcategory">Phones &amp; Gadgets</a></li>
+                    <li><a href="subcategory">Điện thoại &amp; Phụ kiện</a></li>
                     <li><a href="subcategory">TV &amp; Video</a></li>
                     <li>
-                      <a href="subcategory">Games &amp; Entertainment</a>
+                      <a href="subcategory">Trò chơi &amp; Giải trí</a>
                     </li>
-                    <li><a href="subcategory">Photo</a></li>
+                    <li><a href="subcategory">ảnh</a></li>
                     <li class="uk-text-center">
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
                         href="catalog.html"
-                        ><span>see all categories</span
+                        ><span>Xem tất cả mục lục</span
                         ><span uk-icon="icon: chevron-right; ratio: .75;"></span
                       ></a>
                     </li>
                   </ul>
                 </li>
                 <li class="uk-parent">
-                  <a href="brands.html">Brands</a>
+                  <a href="brands.html">Nhãn hiệu</a>
                   <ul class="uk-nav-sub uk-list-divider">
                     <li><a href="subcategory">Apple</a></li>
                     <li><a href="subcategory">Samsung</a></li>
@@ -452,44 +446,41 @@
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
                         href="brands.html"
-                        ><span>see all brands</span
+                        ><span>Xem tất cả nhãn hiệu</span
                         ><span uk-icon="icon: chevron-right; ratio: .75;"></span
                       ></a>
                     </li>
                   </ul>
                 </li>
                 <li class="uk-parent">
-                  <a href="">Pages</a>
+                  <a href="">Các trang</a>
                   <ul class="uk-nav-sub uk-list-divider">
-                    <li><a href="subcategory">Catalog</a></li>
-                    <li><a href="subcategory">Category</a></li>
-                    <li><a href="subcategory">Subcategory</a></li>
-                    <li><a href="subcategory">Product</a></li>
-                    <li><a href="subcategory">Cart</a></li>
-                    <li><a href="subcategory">Checkout</a></li>
-                    <li><a href="subcategory">Compare</a></li>
-                    <li><a href="subcategory">Brands</a></li>
-                    <li><a href="subcategory">Compare</a></li>
-                    <li><a href="subcategory">Account</a></li>
-                    <li><a href="subcategory">Favorites</a></li>
-                    <li><a href="subcategory">Personal</a></li>
-                    <li><a href="subcategory">Settings</a></li>
-                    <li><a href="subcategory">About</a></li>
-                    <li><a href="subcategory">Contacts</a></li>
+                    <li><a href="subcategory">Mục lục</a></li>
+                    <li><a href="subcategory">Thể loại</a></li>
+                    <li><a href="subcategory">Danh mục con</a></li>
+                    <li><a href="subcategory">Sản phẩm</a></li>
+                    <li><a href="subcategory">Giỏ hàng</a></li>
+                    <li><a href="subcategory">Thủ tục thanh toán</a></li>
+                    <li><a href="subcategory">So sánh</a></li>
+                    <li><a href="subcategory">Nhãn hiệu</a></li>
+                    <li><a href="subcategory">Tài khoản</a></li>
+                    <li><a href="subcategory">Yêu thích</a></li>
+                    <li><a href="subcategory">Cá nhân</a></li>
+                    <li><a href="subcategory">Cài đặt</a></li>
+                    <li><a href="subcategory">Thông tin</a></li>
+                    <li><a href="subcategory">Liên lạc</a></li>
                     <li><a href="subcategory">Blog</a></li>
-                    <li><a href="subcategory">News</a></li>
-                    <li><a href="subcategory">Article</a></li>
-                    <li><a href="subcategory">FAQ</a></li>
-                    <li><a href="subcategory">Delivery</a></li>
+                    <li><a href="subcategory">Tin tức</a></li>
+                    <li><a href="subcategory">Câu hỏi thường gặp</a></li>
                     <li><a href="subcategory">404</a></li>
                   </ul>
                 </li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contacts</a></li>
+                <li><a href="about">Thông tin</a></li>
+                <li><a href="contact">Liên lạc</a></li>
                 <li>
                   <a href="compare.html"
-                    >Compare<span class="uk-badge uk-margin-xsmall-left"
+                    >So sánh<span class="uk-badge uk-margin-xsmall-left"
                       >3</span
                     ></a
                   >
@@ -498,9 +489,9 @@
             </nav>
             <nav class="uk-card-small uk-card-body">
               <ul class="uk-nav uk-nav-default">
-                <li><a href="news.html">News</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="">Payment</a></li>
+                <li><a href="news.html">Tin tức</a></li>
+                <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                <li><a href="">Thanh toán</a></li>
               </ul>
             </nav>
             <nav class="uk-card-body">
