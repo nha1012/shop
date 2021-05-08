@@ -152,4 +152,9 @@ export class AppController {
   @Render('auth')
   getAuth(@Req() req, @Res() res, err) {
   }
+
+  @Get('auth/register')
+  @Render('register')
+  getRegister(@Req() req, @Res() res, err) {
+  }
 }
