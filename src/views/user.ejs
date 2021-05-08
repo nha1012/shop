@@ -4,192 +4,222 @@
     <meta charset="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Liên lạc</title>
+    <title>Personal Info</title>
     <link
       rel="stylesheet"
       href="//fonts.googleapis.com/css?family=Roboto:400,500"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="css/toastr.min.css" />
     <script src="scripts/uikit.js"></script>
     <script src="scripts/uikit-icons.js"></script>
   </head>
   <body>
     <div class="uk-offcanvas-content">
-      <%- include('component/header')%>
-
-      <main>
+        <%- include('component/header', {badge: badge}) %>
+        <main>
         <section class="uk-section uk-section-small">
           <div class="uk-container">
-            <div class="uk-grid-medium uk-child-width-1-1" uk-grid>
-              <div class="uk-text-center">
-                <ul class="uk-breadcrumb uk-flex-center uk-margin-remove">
-                  <li><a href="index.html">Trang chủ</a></li>
-                  <li><span>Liên lạc</span></li>
-                </ul>
-                <h1 class="uk-margin-small-top uk-margin-remove-bottom">
-                  Liên lạc
-                </h1>
-              </div>
-              <div>
-                <div class="uk-grid-medium" uk-grid>
-                  <section class="uk-width-1-1 uk-width-expand@m">
-                    <article
-                      class="uk-card uk-card-default uk-card-small uk-card-body uk-article tm-ignore-container"
-                    >
-                      <div class="tm-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.115884163118!2d108.20550281463457!3d16.059475188886935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219b1567254eb%3A0xc95164e679c6108!2zMjM3IE5ndXnhu4VuIFbEg24gTGluaCwgVGjhuqFjIEdpw6FuLCBI4bqjaSBDaMOidSwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1620438826527!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="uk-grid-medium" uk-grid>
+              <div class="uk-width-1-1 uk-width-1-4@m tm-aside-column">
+                <div
+                  class="uk-card uk-card-default uk-card-small tm-ignore-container"
+                  uk-sticky="offset: 90; bottom: true; media: @m;"
+                >
+                  <div class="uk-card-header">
+                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                      <section>
+                        <div
+                          class="uk-width-1-3 uk-width-1-4@s uk-width-1-2@m uk-margin-auto uk-visible-toggle uk-position-relative uk-border-circle uk-overflow-hidden uk-light"
+                        >
+                          <img class="uk-width-1-1" src="images/avatar.png" /><a
+                            class="uk-link-reset uk-overlay-primary uk-position-cover uk-hidden-hover"
+                            href=""
+                            ><div class="uk-position-center">
+                              <span
+                                uk-icon="icon: camera; ratio: 1.25;"
+                              ></span></div
+                          ></a>
+                        </div>
+                      </section>
+                      <div class="uk-text-center">
+                        <div class="uk-h4 uk-margin-remove"><%= user.displayName%></div>
                       </div>
-                      <div
-                        class="uk-child-width-1-1 uk-child-width-1-2@s uk-margin-top"
-                        uk-grid
-                      >
-                        <section>
-                          <h3>Cửa hàng</h3>
-                          <ul class="uk-list">
-                            <li>
-                              <a class="uk-link-heading" href=""
-                                ><span
-                                  class="uk-margin-small-right"
-                                  uk-icon="receiver"
-                                ></span
-                                ><span class="tm-pseudo"
-                                  >+84979420120</span
-                                ></a
-                              >
-                            </li>
-                            <li>
-                              <a class="uk-link-heading" href=""
-                                ><span
-                                  class="uk-margin-small-right"
-                                  uk-icon="mail"
-                                ></span
-                                ><span class="tm-pseudo"
-                                  >nguyenduyduong070699@gmail.com</span
-                                ></a
-                              >
-                            </li>
-                            <li>
-                              <div>
-                                <span
-                                  class="uk-margin-small-right"
-                                  uk-icon="location"
-                                ></span
-                                ><span
-                                  >St.&nbsp;Nguyễn Văn Linh, Quận Thanh Khê&nbsp;Đà Nẵng&nbsp;</span
-                                >
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <span
-                                  class="uk-margin-small-right"
-                                  uk-icon="clock"
-                                ></span
-                                ><span>Giờ mở cửa 10:00–22:00</span>
-                              </div>
-                            </li>
-                          </ul>
-                        </section>
-                        <section>
-                          <h3>Phản hồi</h3>
-                          <dl class="uk-description-list">
-                            <dt>Hợp tác</dt>
-                            <dd>
-                              <a class="uk-link-muted" href=""
-                                >nguyenduyduong070699@gmail.com</a
-                              >
-                            </dd>
-                            <dt>Đối tác</dt>
-                            <dd>
-                              <a class="uk-link-muted" href=""
-                                >pnguyenduyduong070699@gmail.com</a
-                              >
-                            </dd>
-                            <dt>Phản hồi</dt>
-                            <dd>
-                              <a class="uk-link-muted" href=""
-                                >nguyenduyduong070699@gmail.com</a
-                              >
-                            </dd>
-                          </dl>
-                        </section>
-                        <section class="uk-width-1-1">
-                          <h2 class="uk-text-center">Liên hệ chúng tôi</h2>
-                          <form>
-                            <div
-                              class="uk-grid-small uk-child-width-1-1"
-                              uk-grid
+                      <div>
+                        <div class="uk-grid-small uk-flex-center" uk-grid>
+                        
+                          <div>
+                            <button
+                              class="uk-button uk-button-default uk-button-small log-out__js"
+                              title="Log out"
                             >
-                              <div>
-                                <label
-                                  ><div
-                                    class="uk-form-label uk-form-label-required"
-                                  >
-                                    Tên
-                                  </div>
-                                  <input class="uk-input" type="text" required
-                                /></label>
-                              </div>
-                              <div>
-                                <label
-                                  ><div
-                                    class="uk-form-label uk-form-label-required"
-                                  >
-                                    Email
-                                  </div>
-                                  <input class="uk-input" type="email" required
-                                /></label>
-                              </div>
-                              <div>
-                                <label
-                                  ><div class="uk-form-label">Chủ đề</div>
-                                  <select class="uk-select">
-                                    <option>Dịch vụ khách hàng</option>
-                                    <option>Hô trợ kỹ thuật</option>
-                                    <option>Khác</option>
-                                  </select></label
-                                >
-                              </div>
-                              <div>
-                                <label
-                                  ><div class="uk-form-label">Thông điệp</div>
-                                  <textarea
-                                    class="uk-textarea"
-                                    rows="5"
-                                  ></textarea>
-                                </label>
-                              </div>
-                              <div class="uk-text-center">
-                                <button class="uk-button uk-button-primary">
-                                  Gửi
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </section>
+                              <span
+                                uk-icon="icon: sign-out; ratio: .75;"
+                              ></span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </article>
-                  </section>
-                  <aside class="uk-width-1-4 uk-visible@m tm-aside-column">
-                    <section
-                      class="uk-card uk-card-default uk-card-small"
-                      uk-sticky="offset: 90; bottom: true;"
-                    >
-                      <nav>
-                        <ul class="uk-nav uk-nav-default tm-nav">
-                          <li><a href="about">Thông tin</a></li>
-                          <li class="uk-active">
-                            <a href="contact">Liên hệ</a>
-                          </li>
-                          <li><a href="blog.html">Blog</a></li>
-                          <li><a href="news.html">Tin tức</a></li>
-                          <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                        </ul>
-                      </nav>
-                    </section>
-                  </aside>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div class="uk-width-1-1 uk-width-expand@m">
+                <div
+                  class="uk-card uk-card-default uk-card-small tm-ignore-container"
+                >
+                  <header class="uk-card-header">
+                    <h1 class="uk-h2">Personal Info</h1>
+                  </header>
+                  <div class="uk-card-body">
+                    <form class="uk-form-stacked">
+                      <div class="uk-grid-medium uk-child-width-1-1" uk-grid>
+                        <fieldset class="uk-fieldset">
+                          <legend class="uk-h4">Contact</legend>
+                          <div
+                            class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s"
+                            uk-grid
+                          >
+                            <div>
+                              <label
+                                ><div class="uk-form-label">Họ và tên</div>
+                                <input
+                                  class="uk-input"
+                                  type="text"
+                                  value="<%= user.displayName%>"
+                              /></label>
+                            </div>
+                        
+                            <div>
+                              <label
+                                ><div class="uk-form-label">SĐT</div>
+                                <input
+                                  class="uk-input"
+                                  type="tel"
+                                  value="<%= user.phoneNumber%>"
+                              /></label>
+                            </div>
+                
+                          </div>
+                        </fieldset>
+                        <fieldset class="uk-fieldset">
+                          <legend class="uk-h4">Address</legend>
+                          <div class="uk-grid-small" uk-grid>
+                            <div class="uk-width-1-1">
+                              <label><div class="uk-form-label">Country</div>
+                            </div>
+                          </div>
+                          <input
+                            class="uk-input"
+                            type="tel"
+                            value="<%= user.address%>"
+                        />
+                          </div>
+                        </fieldset>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="uk-section uk-section-default uk-section-small">
+          <div class="uk-container">
+            <div uk-slider>
+              <ul
+                class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-5@m uk-grid"
+              >
+                <li>
+                  <div
+                    class="uk-grid-small uk-flex-center uk-flex-left@s"
+                    uk-grid
+                  >
+                    <div><span uk-icon="icon: star; ratio: 2.5;"></span></div>
+                    <div
+                      class="uk-text-center uk-text-left@s uk-width-expand@s"
+                    >
+                      <div>Mauris placerat</div>
+                      <div class="uk-text-meta">
+                        Donec mollis nibh dolor, sit amet auctor
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="uk-grid-small uk-flex-center uk-flex-left@s"
+                    uk-grid
+                  >
+                    <div>
+                      <span uk-icon="icon: receiver; ratio: 2.5;"></span>
+                    </div>
+                    <div
+                      class="uk-text-center uk-text-left@s uk-width-expand@s"
+                    >
+                      <div>Lorem ipsum</div>
+                      <div class="uk-text-meta">
+                        Sit amet, consectetur adipiscing elit
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="uk-grid-small uk-flex-center uk-flex-left@s"
+                    uk-grid
+                  >
+                    <div>
+                      <span uk-icon="icon: location; ratio: 2.5;"></span>
+                    </div>
+                    <div
+                      class="uk-text-center uk-text-left@s uk-width-expand@s"
+                    >
+                      <div>Proin pharetra</div>
+                      <div class="uk-text-meta">
+                        Nec quam a fermentum ut viverra
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="uk-grid-small uk-flex-center uk-flex-left@s"
+                    uk-grid
+                  >
+                    <div>
+                      <span uk-icon="icon: comments; ratio: 2.5;"></span>
+                    </div>
+                    <div
+                      class="uk-text-center uk-text-left@s uk-width-expand@s"
+                    >
+                      <div>Praesent ultrices</div>
+                      <div class="uk-text-meta">
+                        Praesent ultrices, orci nec finibus
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="uk-grid-small uk-flex-center uk-flex-left@s"
+                    uk-grid
+                  >
+                    <div><span uk-icon="icon: happy; ratio: 2.5;"></span></div>
+                    <div
+                      class="uk-text-center uk-text-left@s uk-width-expand@s"
+                    >
+                      <div>Duis condimentum</div>
+                      <div class="uk-text-meta">
+                        Pellentesque eget varius arcu
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul
+                class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"
+              ></ul>
             </div>
           </div>
         </section>
@@ -212,7 +242,9 @@
                     alt="Logo"
                 /></a>
                 <p class="uk-text-small">
-                  Chúng tôi luôn mang đến những sản phẩm cao cấp chính hãng đến tay khách hàng.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  ut mauris eros. Nulla quis ante sed tortor efficitur
+                  facilisis.
                 </p>
                 <ul class="uk-iconnav">
                   <li><a href="" title="Facebook" uk-icon="facebook"></a></li>
@@ -227,18 +259,19 @@
                 <nav class="uk-grid-small uk-child-width-1-2" uk-grid>
                   <div>
                     <ul class="uk-nav uk-nav-default">
-                      <li><a href="catalog.html">Mục lục</a></li>
-                      <li><a href="brands.html">Thương hiệu</a></li>
-                      <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                      <li><a href="">Thanh toán</a></li>
+                      <li><a href="catalog.html">Catalog</a></li>
+                      <li><a href="brands.html">Brands</a></li>
+                      <li><a href="delivery.html">Delivery</a></li>
+                      <li><a href="faq.html">FAQ</a></li>
+                      <li><a href="">Payment</a></li>
                     </ul>
                   </div>
                   <div>
                     <ul class="uk-nav uk-nav-default">
-                      <li><a href="about">Thông tin</a></li>
-                      <li><a href="contact">Liên hệ</a></li>
+                      <li><a href="about">About</a></li>
+                      <li><a href="contact">Contacts</a></li>
                       <li><a href="blog.html">Blog</a></li>
-                      <li><a href="news.html">Tin tức</a></li>
+                      <li><a href="news.html">News</a></li>
                     </ul>
                   </div>
                 </nav>
@@ -251,13 +284,13 @@
                         class="uk-margin-small-right"
                         uk-icon="receiver"
                       ></span
-                      ><span class="tm-pseudo">+84979420120</span></a
+                      ><span class="tm-pseudo">8 800 799 99 99</span></a
                     >
                   </li>
                   <li>
                     <a class="uk-link-muted" href=""
                       ><span class="uk-margin-small-right" uk-icon="mail"></span
-                      ><span class="tm-pseudo">nguyenduyduong070699@gmail.com</span></a
+                      ><span class="tm-pseudo">example@example.com</span></a
                     >
                   </li>
                   <li>
@@ -267,14 +300,14 @@
                         uk-icon="location"
                       ></span
                       ><span
-                        >St.&nbsp;Nguyễn Văn Linh, Quận Thanh Khê&nbsp;Đà Nẵng&nbsp;</span
+                        >St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</span
                       >
                     </div>
                   </li>
                   <li>
                     <div class="uk-text-muted">
                       <span class="uk-margin-small-right" uk-icon="clock"></span
-                      ><span>Giờ mở cửa 10:00–22:00</span>
+                      ><span>Daily 10:00–22:00</span>
                     </div>
                   </li>
                 </ul>
@@ -283,7 +316,7 @@
                 <form class="uk-form-stacked">
                   <label
                     ><div class="uk-form-label uk-text-muted">
-                      Đăng ký
+                      Subscribe for updates
                     </div>
                     <div class="uk-inline uk-width-1-1">
                       <a
@@ -294,11 +327,14 @@
                       ><input
                         class="uk-input"
                         type="email"
-                        placeholder="Email"
+                        placeholder="Your email"
                         required
                       /></div
                   ></label>
                 </form>
+                <div class="uk-margin uk-text-small uk-text-muted">
+                  Shopping Categories icons by Jaro Sigrist from Noun Project
+                </div>
               </div>
             </div>
           </div>
@@ -310,14 +346,14 @@
             <header class="uk-card-header uk-flex uk-flex-middle">
               <div>
                 <a class="uk-link-muted uk-text-bold" href=""
-                  >=+84979420120</a
+                  >8 800 799 99 99</a
                 >
                 <div
                   class="uk-text-xsmall uk-text-muted"
                   style="margin-top: -2px"
                 >
-                  <div>St.&nbsp;Nguyễn Văn Linh, Quận Thanh Khê&nbsp;Đà Nẵng&nbsp;</div>
-                  <div>Giờ mở cửa 10:00–22:00</div>
+                  <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
+                  <div>Daily 10:00–22:00</div>
                 </div>
               </div>
             </header>
@@ -327,29 +363,29 @@
                 uk-nav
               >
                 <li class="uk-parent">
-                  <a href="catalog.html">Mục lục</a>
+                  <a href="catalog.html">Catalog</a>
                   <ul class="uk-nav-sub uk-list-divider">
                     <li>
-                      <a href="subcategory">Máy tính &amp; Máy tính bảng</a>
+                      <a href="subcategory">Laptops &amp; Tablets</a>
                     </li>
-                    <li><a href="subcategory">Điện thoại &amp; Phụ kiện</a></li>
+                    <li><a href="subcategory">Phones &amp; Gadgets</a></li>
                     <li><a href="subcategory">TV &amp; Video</a></li>
                     <li>
-                      <a href="subcategory">Trò chơi &amp; Giải trí</a>
+                      <a href="subcategory">Games &amp; Entertainment</a>
                     </li>
-                    <li><a href="subcategory">ảnh</a></li>
+                    <li><a href="subcategory">Photo</a></li>
                     <li class="uk-text-center">
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
                         href="catalog.html"
-                        ><span>xem tất cả các danh mục</span
+                        ><span>see all categories</span
                         ><span uk-icon="icon: chevron-right; ratio: .75;"></span
                       ></a>
                     </li>
                   </ul>
                 </li>
                 <li class="uk-parent">
-                  <a href="brands.html">Nhãn hiệu</a>
+                  <a href="brands.html">Brands</a>
                   <ul class="uk-nav-sub uk-list-divider">
                     <li><a href="subcategory">Apple</a></li>
                     <li><a href="subcategory">Samsung</a></li>
@@ -367,41 +403,44 @@
                       <a
                         class="uk-link-muted uk-text-uppercase tm-link-to-all"
                         href="brands.html"
-                        ><span>Xem tất cả thương hiệu</span
+                        ><span>see all brands</span
                         ><span uk-icon="icon: chevron-right; ratio: .75;"></span
                       ></a>
                     </li>
                   </ul>
                 </li>
                 <li class="uk-parent">
-                  <a href="">Các trang</a>
+                  <a href="">Pages</a>
                   <ul class="uk-nav-sub uk-list-divider">
-                    <li><a href="subcategory">Mục lục</a></li>
-                    <li><a href="subcategory">Thể loại</a></li>
-                    <li><a href="subcategory">Danh mục con</a></li>
-                    <li><a href="subcategory">Sản phẩm</a></li>
-                    <li><a href="subcategory">Giỏ hàng</a></li>
-                    <li><a href="subcategory">Thủ tục thanh toán</a></li>
-                    <li><a href="subcategory">So sánh</a></li>
-                    <li><a href="subcategory">Thương hiệu</a></li>
-                    <li><a href="subcategory">Tài khoản</a></li>
-                    <li><a href="subcategory">Yêu thích</a></li>
-                    <li><a href="subcategory">Cá nhân</a></li>
-                    <li><a href="subcategory">Cài đặt</a></li>
-                    <li><a href="subcategory">Thông tin</a></li>
-                    <li><a href="subcategory">Liên hệ</a></li>
+                    <li><a href="subcategory">Catalog</a></li>
+                    <li><a href="subcategory">Category</a></li>
+                    <li><a href="subcategory">Subcategory</a></li>
+                    <li><a href="subcategory">Product</a></li>
+                    <li><a href="subcategory">Cart</a></li>
+                    <li><a href="subcategory">Checkout</a></li>
+                    <li><a href="subcategory">Compare</a></li>
+                    <li><a href="subcategory">Brands</a></li>
+                    <li><a href="subcategory">Compare</a></li>
+                    <li><a href="subcategory">Account</a></li>
+                    <li><a href="subcategory">Favorites</a></li>
+                    <li><a href="subcategory">Personal</a></li>
+                    <li><a href="subcategory">Settings</a></li>
+                    <li><a href="subcategory">About</a></li>
+                    <li><a href="subcategory">Contacts</a></li>
                     <li><a href="subcategory">Blog</a></li>
-                    <li><a href="subcategory">Tin tức</a></li>
-                    <li><a href="subcategory">Câu hỏi thường gặp</a></li>
+                    <li><a href="subcategory">News</a></li>
+                    <li><a href="subcategory">Article</a></li>
+                    <li><a href="subcategory">FAQ</a></li>
+                    <li><a href="subcategory">Delivery</a></li>
                     <li><a href="subcategory">404</a></li>
                   </ul>
                 </li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="about">Thông tin</a></li>
-                <li><a href="contact">Liên hệ</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contacts</a></li>
                 <li>
                   <a href="compare.html"
-                    >So sánh<span class="uk-badge uk-margin-xsmall-left"
+                    >Compare<span class="uk-badge uk-margin-xsmall-left"
                       >3</span
                     ></a
                   >
@@ -410,9 +449,9 @@
             </nav>
             <nav class="uk-card-small uk-card-body">
               <ul class="uk-nav uk-nav-default">
-                <li><a href="news.html">Tin tức</a></li>
-                <li><a href="faq.html">Câu hỏi thường gặp</a></li>
-                <li><a href="">Thanh toán</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="">Payment</a></li>
               </ul>
             </nav>
             <nav class="uk-card-body">
@@ -433,7 +472,7 @@
           >
             <header class="uk-card-header uk-flex uk-flex-middle">
               <div class="uk-grid-small uk-flex-1" uk-grid>
-                <div class="uk-width-expand"><div class="uk-h3">Giỏ hàng</div></div>
+                <div class="uk-width-expand"><div class="uk-h3">Cart</div></div>
                 <button
                   class="uk-offcanvas-close"
                   type="button"
@@ -534,7 +573,7 @@
             </div>
             <footer class="uk-card-footer">
               <div class="uk-grid-small" uk-grid>
-                <div class="uk-width-expand uk-text-muted uk-h4">Tổng</div>
+                <div class="uk-width-expand uk-text-muted uk-h4">Subtotal</div>
                 <div class="uk-h4 uk-text-bolder">$3148.00</div>
               </div>
               <div
@@ -545,14 +584,14 @@
                   <a
                     class="uk-button uk-button-default uk-margin-small uk-width-1-1"
                     href="cart.html"
-                    >Xem giỏ hàng</a
+                    >view cart</a
                   >
                 </div>
                 <div>
                   <a
                     class="uk-button uk-button-primary uk-margin-small uk-width-1-1"
                     href="checkout"
-                    >Thủ tục thanh toán</a
+                    >checkout</a
                   >
                 </div>
               </div>
@@ -560,8 +599,15 @@
           </div>
         </aside>
       </div>
+      <% if(carts){%>
+        <%- include('component/cart-right',{ carts: carts }) %>
+      <%}%>
     </div>
-    <script src="scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/toastr.min.js"></script>
+    <script src="/scripts/auth/log-out.js"></script>
+
     <script
       src="//maps.googleapis.com/maps/api/js?key=AIzaSyClyjCemJi4m2q78gNeGkhlckpdH1hzTYA&amp;callback=initMap"
       async
