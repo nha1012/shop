@@ -5,10 +5,34 @@ body{
     background-attachment: fixed;
     background-position: center;
     text-align: center;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
-/*--Left Right--*/
-
+.dangky{
+	display: flex;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.dangky a{
+	color: #fff;
+	background: #ea2858;
+	padding: 0.7rem;
+	width: 10%;
+	border: none;
+	text-decoration: none;
+	border-radius: 30px;
+	outline: none;
+	font-size: 1em;
+	cursor: pointer;
+ 	letter-spacing: 1px;
+ 	font-weight: 400;
+  	font-family:Georgia, 'Times New Roman', Times, serif;
+  	transition: 0.5s all;
+}
+.dangky a:hover{
+  background: #fff;
+  color: #000;
+  transition: 0.5s all;
+}
 .main h2{
   color: #fff;
   padding-bottom: 20px;
@@ -22,11 +46,11 @@ body{
   border: none;
   margin-bottom: 0.3em;
   background:rgba(255,255 ,255, 0.85);
-  width:100%;
+  width:60%;
   color: #000;
   border-radius: 30px;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   letter-spacing: 1px;
 }
 .sub-main{
@@ -52,7 +76,7 @@ span.icon1, span.icon2{
   color: #ea2858;
   font-size: 1.1em;
   position:absolute;
-  right: 6%;
+  right: 23%;
 }
 span.icon1 {
   top: 23%;
@@ -66,12 +90,12 @@ span.icon2 {
   border: none;
   padding: 0.7rem;
   outline: none;
-  width: 44%;
+  width: 20%;
   font-size: 1em;
   cursor: pointer;
   letter-spacing: 1px;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   transition: 0.5s all;
   border-radius: 30px;
 }
@@ -81,14 +105,6 @@ span.icon2 {
   transition: 0.5s all;
 }
 
-/*--turnright--*/
-.turnright{
-	width: 1px;
-	height: 100%;
-	float: left;
-	border: 2px ridge silver ;
-	border-radius: 2px;
-}
 /*--responsive--*/
 
 @media(max-width: 1680px){
