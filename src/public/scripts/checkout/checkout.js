@@ -1,4 +1,23 @@
+
+
 let displayName, phoneNumber, email, address, message;
+
+function successAdd() {
+  new Toast({
+    message: 'Thanh toán thành công.',
+    type: 'success',
+    customButtons: []
+  })
+}
+function failsAdd() {
+  new Toast({
+    message: 'Thanh toán thất bại, vui lòng liên hệ bộ phận hỗ trợ.',
+    type: 'warning',
+    customButtons: []
+  })
+}
+
+
 function getDataUser() {
   displayName = $('.input-display-name__js').val();
   phoneNumber = $('.input-phone-number__js').val();
@@ -28,10 +47,13 @@ function submit() {
         url: "/transaction/user-pay",
         data:{displayName: displayName, phoneNumber: phoneNumber, email: email, address: address, message: message},
         success: function (result) {
-          console.log(result);
+          setTimeout(() => {
+            location.reload("/checkout")
+          }, 3000);
+          successAdd()
         },
         error: function(err){
-         console.log(err);
+          failsAdd()
         }
       })
     } catch (error) {
