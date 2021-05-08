@@ -3,7 +3,7 @@ import { IsNumber } from "class-validator";
 import { ProductEntity } from "src/product/product.entity";
 import { TransactionEntity } from "src/transaction/transaction.entity";
 import { UserEntity } from "src/user/user.entity";
-import { BeforeInsert, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class OrderEntity {
@@ -45,5 +45,9 @@ export class OrderEntity {
   @Column({ type: 'float', name: "TongTien", default: 0, nullable: true })
   @ApiProperty({ description: 'TongTien' })
   tongTien: number;
+  @CreateDateColumn()
+  createDate: Date
 
+  @UpdateDateColumn()
+  updateDateColumn: Date
 }

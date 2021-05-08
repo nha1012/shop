@@ -1,17 +1,17 @@
 
-function failsAdd() {
+function failsAddReview() {
     new Toast({
       message: 'Review thất bại!',
       type: 'warning',
     });
   }
-function successAdd() {
+function successAddReview() {
     new Toast({
         message: 'Review thành công!',
         type: 'success',
     });
 }
-function failsAddLogin() {
+function failsAddLoginReview() {
     new Toast({
       message: 'Vui lòng đăng nhập trước khi review!',
       type: 'warning',
@@ -41,14 +41,13 @@ function addReview() {
           url: "/review-san-pham",
           data: { danhGia: danhGia, productId: productId, soSao: soSao },
           success: function (result) {
-           console.log(result);
-           successAdd();
+           successAddReview();
           },
           error: function(err){
           if (err.status === 403) {
-                return failsAddLogin()
+                return failsAddLoginReview()
             }
-        failsAdd();
+        failsAddReview();
           }
         })
       })
