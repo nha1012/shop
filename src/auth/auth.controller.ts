@@ -19,7 +19,7 @@ export class AuthController {
 
   async login(@Request() req, @Res() res) {
     req.user = req.user;
-    return res.redirect('/')
+    return res.redirect('/');
   }
 
   // Chức năng đăng ký
