@@ -19,16 +19,16 @@ export class AuthController {
 
   async login(@Request() req, @Res() res) {
     req.user = req.user;
-    return res.redirect('/')
+    return res.redirect('/');
   }
 
   // Chức năng đăng ký
-  @Post('register')
-  @ApiOkResponse({ status: 200 })
-  @HttpCode(200)
-  @ApiBody({ type: UserEntity })
-  async register(@Body() user: UserEntity) {
-    user.password = hash(user.password)
-    return this.authService.register(user);
+  @Post('/register')
+  async register(@Body() user: UserEntity, @Res() res) {
+    user.roleId = '2ddccc31-3b13-4daf-b02a-8902aca48a14';
+    user.password = hash(user.password);
+    this.authService.register(user).then(value=>{
+      return res.status(200).send("Đăng ký thành công")
+    })
   }
 }
